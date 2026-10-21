@@ -1,0 +1,5 @@
+# Не заливать на GitHub: рабочие и черновые файлы
+_originals/
+_to_delete/
+preview-*.html
+.DS_Store

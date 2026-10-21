@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оптимизация зон обслуживания — София Баранова</title>
+  <meta name="description" content="Раздел для ML-расчётов зон обслуживания дарксторов: модель предлагает, решение принимает человек. Внутренний B2E-инструмент Самоката.">
+
+  <!-- превью ссылки в мессенджерах и соцсетях (Телеграм, ВК, HH): картинка 1200×630 лежит в images/og/ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="София Баранова">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://sofia-baranova.github.io/case-zony.html">
+  <meta property="og:title" content="Оптимизация зон обслуживания — София Баранова">
+  <meta property="og:description" content="Раздел для ML-расчётов зон обслуживания дарксторов: модель предлагает, решение принимает человек. Внутренний B2E-инструмент Самоката.">
+  <meta property="og:image" content="https://sofia-baranova.github.io/images/og/og-zony.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="index.html">София Баранова</a>
+      <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false">
+        <svg class="nav-toggle__icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+        <svg class="nav-toggle__icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <nav class="nav">
+        <a href="index.html#cases">кейсы</a>
+        <a href="index.html#experience">опыт</a>
+        <a href="https://t.me/thecurehead" target="_blank" rel="noopener">telegram</a>
+        <a href="#" class="js-copy-email" data-email="sofiabaranova97@gmail.com">e-mail</a>
+        <a href="https://drive.google.com/file/d/1ztFR7P-ESMwh4hIgdmYGF1b9-vSlQf4D/view?usp=sharing" target="_blank" rel="noopener">cv</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- мобильная выпадающая панель меню — вынесена из .header отдельным элементом, иначе у вложенного backdrop-filter внутри уже блюрящего родителя ломается блюр в Safari -->
+  <nav class="nav-mobile">
+    <a href="index.html#cases">кейсы</a>
+    <a href="index.html#experience">опыт</a>
+    <a href="https://t.me/thecurehead" target="_blank" rel="noopener">telegram</a>
+    <a href="#" class="js-copy-email" data-email="sofiabaranova97@gmail.com">e-mail</a>
+    <a href="https://drive.google.com/file/d/1ztFR7P-ESMwh4hIgdmYGF1b9-vSlQf4D/view?usp=sharing" target="_blank" rel="noopener">cv</a>
+  </nav>
+
+  <main class="page">
+    <article class="case">
+
+      <!-- ШАПКА КЕЙСА -->
+      <header class="case-hero">
+        <div class="case-hero__side">
+          <div class="case-hero__logo"><img src="images/logo-sam.png" alt="SAM"></div>
+          <div class="case-hero__company"><span class="keep-case">SAM</span></div>
+          <div class="case-hero__meta"><span class="keep-case">B2E</span> · web · в&nbsp;проде<br>единственный дизайнер · 2026</div>
+        </div>
+        <div class="case-hero__main">
+          <h1 class="case-hero__title">Оптимизация зон обслуживания: <span class="keep-case">ML</span> предлагает, решает человек</h1>
+          <p class="case-hero__lead">Внутренний B2E-инструмент Самоката для логистики. Спроектировала раздел, где отдел развития собирает, хранит и&nbsp;сравнивает ML-расчёты по&nbsp;оптимизации зон обслуживания, чтобы решать, где открывать, перераспределять и&nbsp;закрывать дарксторы.</p>
+          <div class="case-hero__cover">
+            <img src="images/cover-zony-hero.webp" alt="Результат расчёта зон на карте с карточкой зоны" width="1920" height="1080">
+          </div>
+        </div>
+      </header>
+
+      <!-- КОНТЕКСТ -->
+      <section class="cblock" id="context">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before"></nav>
+          <span class="cblock__title-text">Контекст</span>
+          <nav class="section-jump section-jump--after" style="--jn: 4">
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Продукт управления логистической сетью SAM (Service Area Management)&nbsp;— внутренний веб-инструмент Самоката: сеть дарксторов, их&nbsp;зоны обслуживания на&nbsp;карте и&nbsp;связи между складами. Раздел оптимизации зон обслуживания я&nbsp;проектировала как часть интеграции с&nbsp;ML.</p>
+          <p>Раньше отдел развития перераспределял зоны вручную, по&nbsp;экспертным оценкам и&nbsp;разрозненным данным. Делать это приходилось часто: одни дарксторы простаивали, другие были перегружены. При закрытии даркстора клиентов нужно было перевести на&nbsp;соседние зоны, при открытии нового границы вокруг тоже сдвигались. От&nbsp;этого росли логистические издержки и&nbsp;риск по&nbsp;SLA. Поэтому расчёт зон автоматизировали: ML-инженер обучил модель, которая пересчитывает границы по&nbsp;прогнозу нагрузки.</p>
+        </div>
+      </section>
+
+      <!-- ПРОБЛЕМА -->
+      <section class="cblock" id="problem">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 1">
+            <a href="#context">Контекст</a>
+          </nav>
+          <span class="cblock__title-text">Проблема</span>
+          <nav class="section-jump section-jump--after" style="--jn: 3">
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Модель считала, но&nbsp;превратить её&nbsp;расчёт в&nbsp;решение по&nbsp;сети было нельзя.</p>
+          <div class="numbered-grid numbered-grid--3">
+            <div class="numbered-card">
+              <div class="numbered-card__title">Расчёты негде смотреть</div>
+              <div class="numbered-card__desc">Интерфейса для расчётов не&nbsp;было, как и&nbsp;готового места под него в&nbsp;продукте</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Не&nbsp;с&nbsp;чем сравнить</div>
+              <div class="numbered-card__desc">Нельзя было увидеть, чем предложение модели отличается от&nbsp;текущих зон</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Границы сырые</div>
+              <div class="numbered-card__desc">Модель рисует границу как обводку домохозяйств, и&nbsp;без правки человеком она не&nbsp;готова к&nbsp;работе</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРОЦЕСС -->
+      <section class="cblock" id="process">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 2">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+          </nav>
+          <span class="cblock__title-text">Процесс</span>
+          <nav class="section-jump section-jump--after" style="--jn: 2">
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <h3>Перевела устройство модели в&nbsp;требования</h3>
+          <p>Модель оперирует параметрами: минимальный товарооборот, ёмкость по&nbsp;заказам, максимальная дистанция, зона SLA. На&nbsp;выходе она даёт сценарии: какие дарксторы оставить, какие закрыть, какие зоны объединить.</p>
+          <figure class="figure">
+            <div class="figure__box" style="aspect-ratio: auto; padding: var(--s5);">
+              <svg viewBox="0 0 744 376" width="100%" role="img" aria-label="Схема: текущие зоны дарксторов и предложение модели после расчёта, где часть дарксторов закрыта, а их зоны объединены с соседними" style="display:block;height:auto;font-family:inherit">
+              <text x="0" y="16" font-size="14" font-weight="600" fill="#111">Сейчас</text>
+              <text x="0" y="34" font-size="12" fill="#6b6b70">текущие зоны и дарксторы</text>
+              <text x="444" y="16" font-size="14" font-weight="600" fill="#111">Предложение модели</text>
+              <text x="444" y="34" font-size="12" fill="#6b6b70">какие оставить, закрыть, объединить</text>
+              <rect x="0" y="48" width="300" height="300" rx="12" fill="#fff"/>
+              <polygon points="8,56 89.2,56.0 106.6,145.6 8.0,168.8" fill="#7aa7d9" fill-opacity=".4" stroke="#7aa7d9" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="89.2,56.0 209.6,56.0 185.2,129.3 116.7,151.4 106.6,145.6" fill="#e8a87c" fill-opacity=".4" stroke="#e8a87c" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="209.6,56.0 292,56 292.0,177.7 231.8,182.2 185.2,129.3" fill="#8cc49a" fill-opacity=".4" stroke="#8cc49a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="8.0,260.6 8.0,168.8 106.6,145.6 116.7,151.4 133.4,245.9" fill="#c49ac9" fill-opacity=".4" stroke="#c49ac9" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="133.4,245.9 116.7,151.4 185.2,129.3 231.8,182.2 198.0,234.7 136.6,248.3" fill="#e3cf7a" fill-opacity=".4" stroke="#e3cf7a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="292.0,177.7 292.0,339.1 198.0,234.7 231.8,182.2" fill="#9fc7c9" fill-opacity=".4" stroke="#9fc7c9" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="146.3,340.0 8,340 8.0,260.6 133.4,245.9 136.6,248.3" fill="#d99a9a" fill-opacity=".4" stroke="#d99a9a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="292.0,339.1 292,340 146.3,340.0 136.6,248.3 198.0,234.7" fill="#a7a7d9" fill-opacity=".4" stroke="#a7a7d9" stroke-opacity=".4" stroke-width=".6"/>
+              <line x1="89.2" y1="56.0" x2="106.6" y2="145.6" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="106.6" y1="145.6" x2="8.0" y2="168.8" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="209.6" y1="56.0" x2="185.2" y2="129.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="116.7" y1="151.4" x2="106.6" y2="145.6" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="185.2" y1="129.3" x2="116.7" y2="151.4" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="231.8" y1="182.2" x2="185.2" y2="129.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="292.0" y1="177.7" x2="231.8" y2="182.2" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="116.7" y1="151.4" x2="133.4" y2="245.9" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="8.0" y1="260.6" x2="133.4" y2="245.9" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="231.8" y1="182.2" x2="198.0" y2="234.7" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="133.4" y1="245.9" x2="136.6" y2="248.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="198.0" y1="234.7" x2="136.6" y2="248.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="292.0" y1="339.1" x2="198.0" y2="234.7" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="146.3" y1="340.0" x2="136.6" y2="248.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <rect x="8" y="56" width="284" height="284" fill="none" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <circle cx="53.4" cy="107.1" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="141.5" cy="90.1" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="243.7" cy="124.2" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="76.2" cy="203.7" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="172.7" cy="186.6" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="252.2" cy="237.8" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="87.5" cy="300.2" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="195.4" cy="288.9" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <rect x="444" y="48" width="300" height="300" rx="12" fill="#fff"/>
+              <polygon points="452,56 533.2,56.0 550.6,145.6 452.0,168.8" fill="#7aa7d9" fill-opacity=".4" stroke="#7aa7d9" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="533.2,56.0 653.6,56.0 629.2,129.3 560.7,151.4 550.6,145.6" fill="#7aa7d9" fill-opacity=".4" stroke="#7aa7d9" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="653.6,56.0 736,56 736.0,177.7 675.8,182.2 629.2,129.3" fill="#8cc49a" fill-opacity=".4" stroke="#8cc49a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="452.0,260.6 452.0,168.8 550.6,145.6 560.7,151.4 577.4,245.9" fill="#7aa7d9" fill-opacity=".4" stroke="#7aa7d9" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="577.4,245.9 560.7,151.4 629.2,129.3 675.8,182.2 642.0,234.7 580.6,248.3" fill="#e3cf7a" fill-opacity=".4" stroke="#e3cf7a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="736.0,177.7 736.0,339.1 642.0,234.7 675.8,182.2" fill="#8cc49a" fill-opacity=".4" stroke="#8cc49a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="590.3,340.0 452,340 452.0,260.6 577.4,245.9 580.6,248.3" fill="#d99a9a" fill-opacity=".4" stroke="#d99a9a" stroke-opacity=".4" stroke-width=".6"/>
+              <polygon points="736.0,339.1 736,340 590.3,340.0 580.6,248.3 642.0,234.7" fill="#d99a9a" fill-opacity=".4" stroke="#d99a9a" stroke-opacity=".4" stroke-width=".6"/>
+              <line x1="533.2" y1="56.0" x2="550.6" y2="145.6" stroke="#111" stroke-opacity=".35" stroke-dasharray="3 3"/>
+              <line x1="550.6" y1="145.6" x2="452.0" y2="168.8" stroke="#111" stroke-opacity=".35" stroke-dasharray="3 3"/>
+              <line x1="653.6" y1="56.0" x2="629.2" y2="129.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="560.7" y1="151.4" x2="550.6" y2="145.6" stroke="#111" stroke-opacity=".35" stroke-dasharray="3 3"/>
+              <line x1="629.2" y1="129.3" x2="560.7" y2="151.4" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="675.8" y1="182.2" x2="629.2" y2="129.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="736.0" y1="177.7" x2="675.8" y2="182.2" stroke="#111" stroke-opacity=".35" stroke-dasharray="3 3"/>
+              <line x1="560.7" y1="151.4" x2="577.4" y2="245.9" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="452.0" y1="260.6" x2="577.4" y2="245.9" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="675.8" y1="182.2" x2="642.0" y2="234.7" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="577.4" y1="245.9" x2="580.6" y2="248.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="642.0" y1="234.7" x2="580.6" y2="248.3" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="736.0" y1="339.1" x2="642.0" y2="234.7" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <line x1="590.3" y1="340.0" x2="580.6" y2="248.3" stroke="#111" stroke-opacity=".35" stroke-dasharray="3 3"/>
+              <rect x="452" y="56" width="284" height="284" fill="none" stroke="#111" stroke-opacity=".6" stroke-width="1.5"/>
+              <circle cx="497.4" cy="107.1" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="585.5" cy="90.1" r="5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+              <circle cx="687.7" cy="124.2" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="520.2" cy="203.7" r="5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+              <circle cx="616.7" cy="186.6" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="696.2" cy="237.8" r="5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+              <circle cx="531.5" cy="300.2" r="6" fill="#111" stroke="#fff" stroke-width="2"/>
+              <circle cx="639.4" cy="288.9" r="5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+              <text x="372.0" y="186.0" font-size="12" fill="#6b6b70" text-anchor="middle">расчёт</text>
+              <line x1="336.0" y1="198.0" x2="402.0" y2="198.0" stroke="#111" stroke-width="1.5"/>
+              <path d="M400.0 193.0 L409.0 198.0 L400.0 203.0 z" fill="#111"/>
+              <circle cx="516" cy="368" r="5" fill="#111" stroke="#fff" stroke-width="1.5"/>
+              <text x="526" y="372" font-size="12" fill="#6b6b70">остаётся</text>
+              <circle cx="594" cy="368" r="4.5" fill="#fff" stroke="#111" stroke-width="1.5"/>
+              <text x="604" y="372" font-size="12" fill="#6b6b70">закрывается</text>
+              </svg>
+            </div>
+          </figure>
+          <p>Расчёт идёт от&nbsp;двадцати минут до&nbsp;суток, и&nbsp;результат сразу не&nbsp;покажешь. Поэтому выделила его в&nbsp;отдельный объект: он&nbsp;хранится со&nbsp;статусом, и&nbsp;к&nbsp;нему можно вернуться. Параметры пользователь задаёт сам при запуске, а&nbsp;способ оптимизации стал одним из&nbsp;них: у&nbsp;модели два режима, с&nbsp;делением и&nbsp;с&nbsp;закрытием зон.</p>
+
+          <h3>Нашла, куда встроить фичу</h3>
+          <p>На&nbsp;дискавери вместе с&nbsp;командой решили встроить фичу во&nbsp;вкладку «Основная карта», а&nbsp;не&nbsp;делать отдельный раздел: на&nbsp;него у&nbsp;разработки не&nbsp;было ресурса, а&nbsp;в&nbsp;«Основной карте» отдел развития уже правил границы зон по&nbsp;городам. Моя задача была найти, где внутри раздела живёт расчёт. Для этого составила объектную модель и&nbsp;флоу: от&nbsp;выбора зон и&nbsp;параметров до&nbsp;отправки результата в&nbsp;драфт (черновик зон).</p>
+          <div class="figure-pair" style="margin-bottom: var(--s6);">
+            <figure class="figure">
+              <div class="figure__box figure__box--illustration figure__box--square" data-lightbox-open="lightbox-object-model">
+                <img src="images/object-model.webp" alt="Объектная модель раздела: группа, зоны обслуживания, ЦФЗ и новый объект «Расчёт оптимизации» с параметрами и действиями" loading="lazy">
+                <button class="wide-scroll__expand" data-lightbox-open="lightbox-object-model" aria-label="Открыть на весь экран">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+                </button>
+              </div>
+              <div class="artifact__caption">объектная модель</div>
+            </figure>
+            <figure class="figure">
+              <div class="figure__box figure__box--illustration figure__box--square" data-lightbox-open="lightbox-flow">
+                <img src="images/flow.webp" alt="Фрагмент флоу: просмотр результатов расчёта, сравнение на карте, по метрикам и по таблице, принятие решения и отправка в драфтовые зоны, со стикерами-вопросами" loading="lazy">
+                <button class="wide-scroll__expand" data-lightbox-open="lightbox-flow" aria-label="Открыть на весь экран">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+                </button>
+              </div>
+              <div class="artifact__caption">фрагмент флоу</div>
+            </figure>
+          </div>
+          <h3>Перестроила дерево города</h3>
+          <p>В&nbsp;задаче этого не&nbsp;было, но&nbsp;по&nbsp;ходу я&nbsp;заметила, что третий тип объектов в&nbsp;дереве города потеряется: зоны и&nbsp;дарксторы и&nbsp;так шли одной простынёй, без сортировки ни&nbsp;по&nbsp;алфавиту, ни&nbsp;по&nbsp;статусу. Разбила список на&nbsp;три группы внутри города: зоны обслуживания, дарксторы и&nbsp;расчёты оптимизации. Новая структура работает во&nbsp;всём разделе «Основная карта», а&nbsp;не&nbsp;только для расчётов.</p>
+
+          <div class="lightbox lightbox--photo" id="lightbox-object-model">
+            <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+            <div class="lightbox__scroll"><img src="images/object-model.webp" alt="Объектная модель раздела: группа, зоны обслуживания, ЦФЗ и новый объект «Расчёт оптимизации» с параметрами и действиями" loading="lazy"></div>
+          </div>
+          <div class="lightbox lightbox--photo" id="lightbox-flow">
+            <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+            <div class="lightbox__scroll"><img src="images/flow.webp" alt="Фрагмент флоу: просмотр результатов расчёта, сравнение на карте, по метрикам и по таблице, принятие решения и отправка в драфтовые зоны, со стикерами-вопросами" loading="lazy"></div>
+          </div>
+
+          <figure class="figure" style="margin-top: var(--s4);">
+            <div class="figure__box figure__box--illustration" data-lightbox-open="lightbox-accordions">
+              <img src="images/accordions-before-after.webp" alt="Было: при раскрытии города зоны и дарксторы идут одним списком. Стало: внутри города три группы: зоны обслуживания, ЦФЗ и расчёты оптимизации" loading="lazy">
+              <button class="wide-scroll__expand" data-lightbox-open="lightbox-accordions" aria-label="Открыть на весь экран">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+              </button>
+            </div>
+            <div class="artifact__caption">ЦФЗ&nbsp;— центр формирования заказов, так в&nbsp;Самокате называют дарксторы</div>
+          </figure>
+
+          <div class="lightbox lightbox--photo" id="lightbox-accordions">
+            <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+            <div class="lightbox__scroll"><img src="images/accordions-before-after.webp" alt="Было: при раскрытии города зоны и дарксторы идут одним списком. Стало: внутри города три группы: зоны обслуживания, ЦФЗ и расчёты оптимизации" loading="lazy"></div>
+          </div>
+
+          <h3>Продумала, как отбирать зоны под расчёт</h3>
+          <p>Перебрала несколько способов и&nbsp;на&nbsp;созвоне с&nbsp;пользователями отсеяла лишнее. Выбор отдельными чекбоксами отпал: зоны и&nbsp;дарксторы лежат в&nbsp;разных списках, и&nbsp;отмечать пришлось&nbsp;бы по&nbsp;очереди то&nbsp;одно, то&nbsp;другое. Выделение кругом неточное: в&nbsp;него попадают и&nbsp;ненужные зоны. Остались два способа под разные ситуации. Обводкой пользователь отмечает область по&nbsp;точкам, и&nbsp;в&nbsp;выделение попадают только активные зоны: так удобнее в&nbsp;крупных городах с&nbsp;множеством районов. Небольшой город проще отметить целиком, чекбоксом у&nbsp;его названия: в&nbsp;нём бывает до&nbsp;20&nbsp;зон, и&nbsp;галочка быстрее обводки.</p>
+          <div class="sketch-crops">
+            <figure>
+              <div class="sketch-crop" data-lightbox-open="lightbox-lofi" data-mark="1">
+                <img src="images/zones-crop-checkbox.webp" alt="Набросок: выбор зон отдельными чекбоксами в дереве, вариант перечёркнут" width="750" height="500" loading="lazy">
+                <span class="sketch-mark" style="left:55%; top:79%">1</span>
+              </div>
+              <figcaption class="artifact__caption">1. Чекбоксы у&nbsp;отдельных зон</figcaption>
+            </figure>
+            <figure>
+              <div class="sketch-crop" data-lightbox-open="lightbox-lofi" data-mark="2">
+                <img src="images/zones-crop-drawing.webp" alt="Набросок: обводка области на карте и чекбокс по городу, вариант обведён как выбранный" width="750" height="500" loading="lazy">
+                <span class="sketch-mark" style="left:80%; top:80%">2</span>
+              </div>
+              <figcaption class="artifact__caption">2. Обводка и&nbsp;чекбокс по&nbsp;городу</figcaption>
+            </figure>
+            <figure>
+              <div class="sketch-crop" data-lightbox-open="lightbox-lofi" data-mark="3">
+                <img src="images/zones-crop-circle.webp" alt="Набросок: выделение зон кругом на карте, вариант перечёркнут" width="750" height="500" loading="lazy">
+                <span class="sketch-mark" style="left:82%; top:83%">3</span>
+              </div>
+              <figcaption class="artifact__caption">3. Выделение кругом</figcaption>
+            </figure>
+          </div>
+
+          <h3>Сверяла логику с&nbsp;пользователями</h3>
+          <p>Сроки не&nbsp;оставляли места для глубинных интервью и&nbsp;юзабилити-тестов, поэтому логику раздела я&nbsp;выстраивала на&nbsp;созвонах с&nbsp;руководителем отдела развития и&nbsp;командой, а&nbsp;постановку бизнес-аналитик писал уже по&nbsp;моим макетам. Спорные места заложила в&nbsp;макет как гипотезы: если результат виден до&nbsp;отправки в&nbsp;драфт, отклонённых рекомендаций будет меньше; если у&nbsp;каждой предложенной зоны видны её&nbsp;показатели, модели будут больше доверять.</p>
+          <p>Кликабельный прототип собирать не&nbsp;стала: он&nbsp;не&nbsp;показал&nbsp;бы главного, поведения интерфейса на&nbsp;реальных ML-данных и&nbsp;карте.</p>
+        </div>
+      </section>
+
+      <!-- РЕШЕНИЕ -->
+      <section class="cblock" id="solution">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 3">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+          </nav>
+          <span class="cblock__title-text">Решение</span>
+          <nav class="section-jump section-jump--after" style="--jn: 1">
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Спроектировала жизненный цикл расчёта: от&nbsp;отбора зон и&nbsp;запуска до&nbsp;сравнения результата и&nbsp;переноса в&nbsp;драфт.</p>
+
+          <h3>Обводка та&nbsp;же, что при создании зоны</h3>
+          <p>Зоны под расчёт отбирают обводкой на&nbsp;карте или чекбоксом в&nbsp;дереве, сразу по&nbsp;городу или группе. Инструмент обводки в&nbsp;«Основной карте» уже был: им&nbsp;рисуют новые зоны. Его&nbsp;же я&nbsp;взяла для расчёта, так что пользователю он&nbsp;уже знаком, а&nbsp;разработке не&nbsp;пришлось делать его с&nbsp;нуля. Чекбоксом отмечают группы и&nbsp;вызывают расчёт из&nbsp;их&nbsp;меню. Дальше пользователь задаёт параметры и&nbsp;запускает расчёт, а&nbsp;тост подсказывает, где следить за&nbsp;статусом.</p>
+          <div class="wide-scroll">
+            <div class="scenario-tabs" role="tablist">
+              <button class="scenario-tabs__tab is-active" type="button" role="tab" aria-selected="true" data-tab="calc-drawing">Обводка</button>
+              <button class="scenario-tabs__tab" type="button" role="tab" aria-selected="false" data-tab="calc-checkbox">Чекбокс</button>
+            </div>
+            <div class="wide-scroll__track is-active" data-tab-panel="calc-drawing" data-lightbox-open="lightbox-calc-drawing">
+              <div class="strip">
+                <img src="images/calc-create-drawing.webp" alt="Раскадровка создания расчёта обводкой: выделение области на карте, ввод параметров, запуск расчёта" loading="lazy">
+                <span class="strip-cap" style="left:10%; top:92.5%">тот&nbsp;же инструмент, что при создании зоны</span>
+              </div>
+            </div>
+            <div class="wide-scroll__track" data-tab-panel="calc-checkbox" data-lightbox-open="lightbox-calc-checkbox">
+              <div class="strip">
+                <img src="images/calc-create-checkbox.webp" alt="Раскадровка создания расчёта чекбоксом: выбор города в дереве, ввод параметров, запуск расчёта" loading="lazy">
+                <span class="strip-cap" style="left:58.1%; top:92.5%">способ оптимизации тоже параметр</span>
+              </div>
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-calc-drawing" aria-label="Открыть на весь экран">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+            </button>
+          </div>
+
+          <div class="lightbox" id="lightbox-calc-drawing">
+            <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+            <div class="lightbox__scroll"><div class="strip">
+              <img src="images/calc-create-drawing.webp" alt="Раскадровка создания расчёта обводкой: выделение области на карте, ввод параметров, запуск расчёта" loading="lazy">
+              <span class="strip-cap" style="left:10%; top:92.5%">тот&nbsp;же инструмент, что при создании зоны</span>
+            </div></div>
+          </div>
+          <div class="lightbox" id="lightbox-calc-checkbox">
+            <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+            <div class="lightbox__scroll"><div class="strip">
+              <img src="images/calc-create-checkbox.webp" alt="Раскадровка создания расчёта чекбоксом: выбор города в дереве, ввод параметров, запуск расчёта" loading="lazy">
+              <span class="strip-cap" style="left:58.1%; top:92.5%">способ оптимизации тоже параметр</span>
+            </div></div>
+          </div>
+
+          <h3>Расчёт хранится, пока актуален</h3>
+          <p>Расчёты лежат в&nbsp;дереве города, в&nbsp;группе «Расчёты оптимизации», со&nbsp;статусом «в&nbsp;процессе», «готов» или «ошибка». Расчёт с&nbsp;ошибкой можно перезапустить или удалить. Готовый хранится месяц или до&nbsp;первого изменения зон, которые в&nbsp;нём участвовали, а&nbsp;потом пропадает из&nbsp;списка: за&nbsp;месяц может смениться сезон, и&nbsp;данные устареют. Такое правило мы&nbsp;приняли вместе с&nbsp;отделом развития и&nbsp;командой.</p>
+
+          <h3>Текущие зоны включаются прямо на&nbsp;расчёте</h3>
+          <p>Готовый расчёт открывается на&nbsp;карте с&nbsp;границами, которые предлагает модель. Чекбокс «Текущие зоны» добавляет на&nbsp;карту нынешние границы пунктиром, и&nbsp;сразу видно, как сдвинулась сеть и&nbsp;какие дарксторы закроются. Так сравнивать попросил отдел развития: текущие зоны удобнее подложить как кальку, чем сверять две карты. По&nbsp;клику на&nbsp;зону открываются её&nbsp;показатели, а&nbsp;подходящие зоны пользователь копирует в&nbsp;драфт, по&nbsp;одной или все сразу, и&nbsp;дальше правит вручную.</p>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-calc-result">
+              <div class="strip">
+                <img src="images/calc-result.webp" alt="Раскадровка просмотра результата: расчёт в процессе, готов, предложение модели на карте, сравнение с текущими зонами, показатели зоны и копирование в драфт" loading="lazy">
+                <span class="strip-cap" style="left:64.6%; top:92.5%">текущие зоны показаны пунктиром</span>
+              </div>
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-calc-result" aria-label="Открыть на весь экран">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+            </button>
+          </div>
+
+          <div class="lightbox" id="lightbox-calc-result">
+            <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+            <div class="lightbox__scroll"><div class="strip">
+              <img src="images/calc-result.webp" alt="Раскадровка просмотра результата: расчёт в процессе, готов, предложение модели на карте, сравнение с текущими зонами, показатели зоны и копирование в драфт" loading="lazy">
+              <span class="strip-cap" style="left:64.6%; top:92.5%">текущие зоны показаны пунктиром</span>
+            </div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- РЕЗУЛЬТАТ -->
+      <section class="cblock" id="result">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 4">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+          </nav>
+          <span class="cblock__title-text">Результат</span>
+          <nav class="section-jump section-jump--after"></nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Раздел запустили уже после моего ухода по&nbsp;сокращению. По&nbsp;словам продакта, он&nbsp;работает: по&nbsp;расчётам модели уже оптимизировали два города, и&nbsp;инструментом пользуются для решений по&nbsp;сети.</p>
+          <p>Для разработки и&nbsp;бизнес-аналитика подготовила макеты с&nbsp;аннотациями, а&nbsp;на&nbsp;финальном созвоне презентовала раздел продуктовой команде, пользователям и&nbsp;ML-инженеру.</p>
+          <h3>Что сделала&nbsp;бы дальше</h3>
+          <p>Таблицу, где показатели текущих зон стоят рядом с&nbsp;показателями расчёта, я&nbsp;сразу вынесла из&nbsp;первой итерации: в&nbsp;оставшееся время её&nbsp;было не&nbsp;успеть, и&nbsp;команду я&nbsp;предупредила заранее. С&nbsp;неё я&nbsp;бы&nbsp;и&nbsp;начала следующую итерацию, а&nbsp;заодно проверила&nbsp;бы на&nbsp;пользователях сценарий запуска расчёта. Гипотезы оценивала&nbsp;бы по&nbsp;доле расчётов, из&nbsp;которых хотя&nbsp;бы одна зона доходит до&nbsp;драфта.</p>
+        </div>
+      </section>
+
+      <!-- БАННЕР «СПАСИБО, ЧТО ДОЧИТАЛИ»: приглашение пообщаться, до переходов к другим кейсам -->
+      <div class="case-banner-row">
+        <div></div>
+        <aside class="case-banner">
+          <div class="case-banner__title">Спасибо, что <span class="nowrap">дочитали<span class="contact__sticker"><img alt="" data-sticker></span></span></div>
+          <p class="case-banner__text">Напишите, если хотите обсудить кейс: покажу макеты и&nbsp;расскажу о&nbsp;решениях подробнее</p>
+          <div class="case-banner__actions">
+            <a class="btn" href="https://t.me/thecurehead" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+            <a class="btn btn--ghost js-copy-email" href="#" data-email="sofiabaranova97@gmail.com">Скопировать e-mail</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ПРЕДЫДУЩИЙ / СЛЕДУЮЩИЙ -->
+      <nav class="case-pager">
+        <a class="pager-link prev" href="case-svyazi.html">
+          <span class="pager-link__cover"><img src="images/cover-svyazi-card.webp" alt="" width="1600" height="1200" loading="lazy"></span><div class="pager-link__text"><div class="pager-link__k">Предыдущий кейс</div>
+          <div class="pager-link__t">Связи дарксторов</div></div>
+        </a>
+        <a class="pager-link next" href="case-velosipedy.html">
+          <div class="pager-link__text"><div class="pager-link__k">Следующий кейс</div>
+          <div class="pager-link__t">Учёт велопарка</div></div><span class="pager-link__cover"><img src="images/cover-velo-card.webp" alt="" width="1600" height="1200" loading="lazy"></span>
+        </a>
+      </nav>
+
+    </article>
+
+    <!-- доска FigJam с вариантами отбора зон: id как у доски в «Связях», чтобы заработали увеличение по клику и подсветка метки -->
+    <div class="lightbox" id="lightbox-lofi">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><div class="strip">
+        <img src="images/zones-board.webp" alt="Доска FigJam: три варианта отбора зон под расчёт, два перечёркнуты, выбранный обведён; стикеры с вопросами" loading="lazy">
+        <span class="sketch-mark" data-mark="1" style="left:13.7%; top:44.1%">1</span>
+        <span class="sketch-mark" data-mark="2" style="left:52.3%; top:47.4%">2</span>
+        <span class="sketch-mark" data-mark="3" style="left:85.7%; top:55%">3</span>
+      </div></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

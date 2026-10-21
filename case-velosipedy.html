@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Учёт велопарка — София Баранова</title>
+  <meta name="description" content="Как оцифровка сэкономила Самокату более 27&nbsp;млн&nbsp;₽: мобильное приложение и веб для учёта велопарка.">
+
+  <!-- превью ссылки в мессенджерах и соцсетях (Телеграм, ВК, HH): картинка 1200×630 лежит в images/og/ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="София Баранова">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://sofia-baranova.github.io/case-velosipedy.html">
+  <meta property="og:title" content="Учёт велопарка — София Баранова">
+  <meta property="og:description" content="Как оцифровка сэкономила Самокату более 27 млн ₽: мобильное приложение и веб для учёта велопарка.">
+  <meta property="og:image" content="https://sofia-baranova.github.io/images/og/og-velo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="index.html">София Баранова</a>
+      <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false">
+        <svg class="nav-toggle__icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+        <svg class="nav-toggle__icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <nav class="nav">
+        <a href="index.html#cases">кейсы</a>
+        <a href="index.html#experience">опыт</a>
+        <a href="https://t.me/thecurehead" target="_blank" rel="noopener">telegram</a>
+        <a href="#" class="js-copy-email" data-email="sofiabaranova97@gmail.com">e-mail</a>
+        <a href="https://drive.google.com/file/d/1ztFR7P-ESMwh4hIgdmYGF1b9-vSlQf4D/view?usp=sharing" target="_blank" rel="noopener">cv</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile">
+    <a href="index.html#cases">кейсы</a>
+    <a href="index.html#experience">опыт</a>
+    <a href="https://t.me/thecurehead" target="_blank" rel="noopener">telegram</a>
+    <a href="#" class="js-copy-email" data-email="sofiabaranova97@gmail.com">e-mail</a>
+    <a href="https://drive.google.com/file/d/1ztFR7P-ESMwh4hIgdmYGF1b9-vSlQf4D/view?usp=sharing" target="_blank" rel="noopener">cv</a>
+  </nav>
+
+  <main class="page">
+    <article class="case">
+
+      <!-- ШАПКА КЕЙСА -->
+      <header class="case-hero">
+        <div class="case-hero__side">
+          <div class="case-hero__logo"><img src="images/logo-samokat-fix.png" alt="Samokat Fix"></div>
+          <div class="case-hero__company">Samokat Fix</div>
+          <div class="case-hero__meta"><span class="keep-case">B2E</span> · web &amp; mobile · в&nbsp;проде<br>единственный дизайнер · 2022–23</div>
+        </div>
+        <div class="case-hero__main">
+          <h1 class="case-hero__title">Учёт велопарка: как оцифровка сэкономила Самокату более 27&nbsp;млн&nbsp;₽</h1>
+          <p class="case-hero__lead">Спроектировала с&nbsp;нуля мобильное приложение и&nbsp;веб для учёта велопарка Самоката. На&nbsp;полевых UX-тестах выяснила, что мастерам непонятны названия в&nbsp;списке запчастей, и&nbsp;по&nbsp;итогам его переработали.</p>
+          <div class="case-hero__cover">
+            <img src="images/cover-velo-hero.webp" alt="Список велосипедов в вебе и сканер QR-кода в мобильном приложении" width="1920" height="1080">
+          </div>
+        </div>
+      </header>
+
+      <!-- КОНТЕКСТ -->
+      <section class="cblock" id="context">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before"></nav>
+          <span class="cblock__title-text">Контекст</span>
+          <nav class="section-jump section-jump--after" style="--jn: 4">
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>У&nbsp;Самоката есть свой велопарк и&nbsp;велосервис, но&nbsp;до&nbsp;2022&nbsp;года единого учёта не&nbsp;было. Для этого и&nbsp;сделали Samokat Fix. Это мобильное приложение и&nbsp;веб: мастера ведут ремонт с&nbsp;телефона, а&nbsp;директора дарксторов и&nbsp;руководители велосервиса видят, где каждый велосипед и&nbsp;в&nbsp;каком он&nbsp;состоянии.</p>
+          <p>Один и&nbsp;тот&nbsp;же велосипед пользователи и&nbsp;заказчики видели по-разному. Для мастера это поломка, которую нужно закрыть сегодня. Для финконтроля и&nbsp;руководителей департаментов это цифры: сколько велосипедов в&nbsp;строю и&nbsp;во&nbsp;что обходится их&nbsp;ремонт.</p>
+          <div class="user-groups">
+            <div class="user-group">
+              <div class="user-group__title">Пользователи</div>
+              <ul class="user-group__roles user-group__roles--list">
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f527.webp" alt="" width="20" height="20"></span><span class="role-label">веломастера</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f3ed.webp" alt="" width="20" height="20"></span><span class="role-label">главные механики</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f4bc.webp" alt="" width="20" height="20"></span><span class="role-label">координаторы</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f469-200d-1f4bc.webp" alt="" width="20" height="20"></span><span class="role-label">директора дарксторов</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f4bb.webp" alt="" width="20" height="20"></span><span class="role-label">руководители велосервиса</span></li>
+              </ul>
+              <div class="user-group__task"><span class="user-group__task-label">Задача:</span> вести учёт и&nbsp;ремонт, держать парк в&nbsp;рабочем состоянии</div>
+            </div>
+            <div class="user-group">
+              <div class="user-group__title">Заказчики</div>
+              <ul class="user-group__roles user-group__roles--list">
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f469-200d-1f4bb.webp" alt="" width="20" height="20"></span><span class="role-label">финконтроль</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f9d1-200d-1f4bb.webp" alt="" width="20" height="20"></span><span class="role-label">обеспечение велотранспортом</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f4bc.webp" alt="" width="20" height="20"></span><span class="role-label">координация сервиса</span></li>
+                <li><span class="speech-bubble__avatar"><img src="images/emoji/1f9d1-200d-1f4bc.webp" alt="" width="20" height="20"></span><span class="role-label">руководители департаментов</span></li>
+              </ul>
+              <div class="user-group__task"><span class="user-group__task-label">Задача:</span> видеть состояние парка и&nbsp;решать, что закупать и&nbsp;как распределять</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРОБЛЕМА -->
+      <section class="cblock" id="problem">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 1">
+            <a href="#context">Контекст</a>
+          </nav>
+          <span class="cblock__title-text">Проблема</span>
+          <nav class="section-jump section-jump--after" style="--jn: 3">
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Парк нужно было держать в&nbsp;рабочем состоянии, а&nbsp;запчасти закупать без лишних трат. Без учёта не&nbsp;получалось ни&nbsp;того, ни&nbsp;другого:</p>
+          <div class="numbered-grid">
+            <div class="numbered-card">
+              <div class="numbered-card__title">Непрозрачный учёт</div>
+              <div class="numbered-card__desc">Велосипеды помечали номерами на&nbsp;малярном скотче, а&nbsp;актуальных остатков никто не&nbsp;знал, поэтому закупали вслепую</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Дорогой ремонт</div>
+              <div class="numbered-card__desc">Запчасти не&nbsp;контролировали, и&nbsp;пропавшие детали списывали на&nbsp;ремонт. За&nbsp;срок службы починка велосипеда обходилась почти в&nbsp;цену нового</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Пропажи</div>
+              <div class="numbered-card__desc">Часть велосипедов разбирали на&nbsp;детали и&nbsp;продавали на&nbsp;Авито</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Медленная работа</div>
+              <div class="numbered-card__desc">Мастер не&nbsp;видел всех заявок сразу и&nbsp;вёл учёт вручную, поэтому планировать день и&nbsp;брать больше ремонтов было сложно</div>
+            </div>
+          </div>
+          <div class="artifact-board-frame">
+            <div class="artifact-board">
+              <div class="artifact-col">
+                <div class="artifact artifact--v">
+                  <div class="artifact__frame" data-lightbox-open="lightbox-artifact-01"><img src="images/artifact-repair-screen.webp" alt="Заявка на ремонт в легаси-решении Elma" loading="lazy"></div>
+                  <div class="artifact__caption">01&nbsp;— заявка на&nbsp;ремонт в&nbsp;легаси-решении Elma</div>
+                </div>
+                <div class="artifact artifact--h">
+                  <div class="artifact__frame" data-lightbox-open="lightbox-artifact-04"><img src="images/artifact-notebook.webp" alt="Рукописная тетрадь распределения по дарксторам" loading="lazy"></div>
+                  <div class="artifact__caption">04&nbsp;— тетрадь распределения по&nbsp;дарксторам</div>
+                </div>
+              </div>
+              <div class="artifact-col artifact-col--center">
+                <div class="artifact artifact--h">
+                  <div class="artifact__frame" data-lightbox-open="lightbox-artifact-02"><img src="images/artifact-avito.webp" alt="Рама на Авито" loading="lazy"></div>
+                  <div class="artifact__caption">02&nbsp;— рама на&nbsp;Авито</div>
+                </div>
+                <div class="artifact artifact--h">
+                  <div class="artifact__frame" data-lightbox-open="lightbox-artifact-05"><img src="images/artifact-sheets.webp" alt="Таблица учёта ремонта в Google Sheets" loading="lazy"></div>
+                  <div class="artifact__caption">05&nbsp;— таблица учёта в&nbsp;Google Sheets</div>
+                </div>
+              </div>
+              <div class="artifact-col">
+                <div class="artifact artifact--v">
+                  <div class="artifact__frame" data-lightbox-open="lightbox-artifact-03"><img src="images/artifact-tape.webp" alt="Номера на малярном скотче" loading="lazy"></div>
+                  <div class="artifact__caption">03&nbsp;— номера на&nbsp;малярном скотче</div>
+                </div>
+                <div class="artifact artifact--h">
+                  <div class="artifact__frame" data-lightbox-open="lightbox-artifact-06"><img src="images/artifact-journal-tmc.webp" alt="Журнал выдачи ТМЦ" loading="lazy"></div>
+                  <div class="artifact__caption">06&nbsp;— журнал выдачи ТМЦ</div>
+                </div>
+              </div>
+            </div>
+            <div class="artifact-board-caption">артефакты «было»</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРОЦЕСС -->
+      <section class="cblock" id="process">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 2">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+          </nav>
+          <span class="cblock__title-text">Процесс</span>
+          <nav class="section-jump section-jump--after" style="--jn: 2">
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Первыми в&nbsp;команду пришли продакт и&nbsp;два бизнес-аналитика: вместе с&nbsp;руководителями велосервиса они собрали требования. Я&nbsp;присоединилась в&nbsp;конце апреля 2022&nbsp;года, в&nbsp;мае начала проектировать, а&nbsp;в&nbsp;декабре приложение вышло в&nbsp;прод. Сроки были сжатые, поэтому отдельный discovery я&nbsp;не&nbsp;проводила: взяла требования за&nbsp;основу, а&nbsp;решения проверяла на&nbsp;прототипах, в&nbsp;поле и&nbsp;на&nbsp;реальных данных.</p>
+
+          <h3>Один QR-код на&nbsp;раме, свой сценарий для каждой роли</h3>
+          <p>В&nbsp;основе учёта наклейка с&nbsp;QR-кодом и&nbsp;номером на&nbsp;каждой раме. Это идея продуктовой команды и&nbsp;руководителей велосервиса. Пользователь сканирует код и&nbsp;попадает в&nbsp;карточку велосипеда. Что дальше, зависит от&nbsp;того, кто сканирует: мастер начинает ремонт, директор даркстора создаёт заявку, механик принимает велосипед на&nbsp;сервисном центре.</p>
+          <div class="figure-pair">
+            <figure class="figure figure--tight-bottom">
+              <div class="figure__box figure__box--square" data-lightbox-open="lightbox-scan-qr-mechanic">
+                <img src="images/scan-qr-mechanic.webp" alt="Веломастер сканирует QR-код на раме велосипеда" loading="lazy">
+                <button class="wide-scroll__expand" data-lightbox-open="lightbox-scan-qr-mechanic" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+              </div>
+            </figure>
+            <figure class="figure figure--tight-bottom">
+              <div class="figure__box figure__box--illustration figure__box--square" style="padding: 0" data-lightbox-open="lightbox-scan-qr-screens">
+                <img src="images/scan-qr-screens.webp" alt="Экран сканирования QR-кода и открывшаяся карточка велосипеда" loading="lazy">
+                <button class="wide-scroll__expand" data-lightbox-open="lightbox-scan-qr-screens" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+              </div>
+            </figure>
+          </div>
+          <p>Под каждую роль я&nbsp;написала user story и&nbsp;по&nbsp;ним спроектировала сценарии в&nbsp;приложении и&nbsp;в&nbsp;вебе. У&nbsp;выездного мастера и&nbsp;мастера на&nbsp;сервисном центре, например, разные задачи: выездной заранее решает, какие запчасти взять с&nbsp;собой на&nbsp;несколько дарксторов, а&nbsp;второй чинит велосипеды, которые привезли к&nbsp;нему. Для выездных я&nbsp;добавила в&nbsp;сканер фонарик: на&nbsp;некоторых дарксторах темно, и&nbsp;наклейку не&nbsp;разглядеть.</p>
+
+          <h3>Тесты прошли все&nbsp;— а&nbsp;проблема оказалась в&nbsp;названиях запчастей</h3>
+          <p>В&nbsp;прототипах был настоящий список запчастей: его передал бизнес-аналитик, а&nbsp;собирали руководители велосервиса. Пять юзабилити-тестов я&nbsp;провела прямо на&nbsp;сервисном центре, с&nbsp;веломастерами и&nbsp;главным механиком. С&nbsp;заданиями справились все, но&nbsp;каждый отдельно отметил, что названия деталей в&nbsp;списке ему непонятны.</p>
+          <div class="process-scene">
+          <div class="quote-scatter">
+            <div class="speech-bubble">
+              <span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f527.webp" alt="" width="20" height="20"></span>
+              <div class="speech-bubble__text">Что такое «кокпит»? Не&nbsp;понятно, что это такое&nbsp;— это что-то из&nbsp;«Формулы-1»</div>
+            </div>
+            <div class="speech-bubble">
+              <span class="speech-bubble__avatar"><img src="images/emoji/1f469-200d-1f527.webp" alt="" width="20" height="20"></span>
+              <div class="speech-bubble__text">Педали в&nbsp;трансмиссии? Это&nbsp;же не&nbsp;трансмиссия</div>
+            </div>
+            <div class="speech-bubble">
+              <span class="speech-bubble__avatar"><img src="images/emoji/1f9d1-200d-1f527.webp" alt="" width="20" height="20"></span>
+              <div class="speech-bubble__text">Оплётка и&nbsp;рубашка&nbsp;— это разве не&nbsp;одно и&nbsp;то&nbsp;же?</div>
+            </div>
+            <div class="speech-bubble">
+              <span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f527.webp" alt="" width="20" height="20"></span>
+              <div class="speech-bubble__text">Мне проще поиском&nbsp;— не&nbsp;все знают, что такое фреймсет, кокпит и&nbsp;прочее</div>
+            </div>
+            <div class="speech-bubble">
+              <span class="speech-bubble__avatar"><img src="images/emoji/1f9d1-200d-1f527.webp" alt="" width="20" height="20"></span>
+              <div class="speech-bubble__text">Ой, какие слова. Мне кажется, лучше писать простым языком</div>
+            </div>
+            <div class="speech-bubble-exchange">
+              <div class="speech-bubble">
+                <span class="speech-bubble__avatar"><img src="images/emoji/1f468-200d-1f527.webp" alt="" width="20" height="20"></span>
+                <div class="speech-bubble__text">Ты&nbsp;знаешь, что такое «кокпит»?</div>
+              </div>
+              <div class="speech-bubble speech-bubble--reply">
+                <div class="speech-bubble__text">Как пить? <img class="emoji-inline" src="images/emoji/1f605.webp" alt="😅"></div>
+                <span class="speech-bubble__avatar"><img src="images/emoji/1f469-200d-1f527.webp" alt="" width="20" height="20"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-stack-block">
+            <div class="photo-stack" id="workshop-stack">
+              <div class="photo-stack__frames">
+                <div class="photo-stack__shadow" style="--tilt:-7deg;"></div>
+                <div class="photo-stack__shadow" style="--tilt:5deg;"></div>
+                <div class="photo-stack__shadow" style="--tilt:-3deg;"></div>
+                <div class="photo-stack__frame is-active" data-lightbox-open="lightbox-workshop-1"><img src="images/workshop-6.webp" alt="Картонная табличка от руки: «сломан петух»" loading="lazy"></div>
+                <div class="photo-stack__frame" data-lightbox-open="lightbox-workshop-2"><img src="images/workshop-1.webp" alt="Склад с велосипедами в мастерской" loading="lazy"></div>
+                <div class="photo-stack__frame" data-lightbox-open="lightbox-workshop-3"><img src="images/workshop-2.webp" alt="Мастер ремонтирует велосипед" loading="lazy"></div>
+                <div class="photo-stack__frame" data-lightbox-open="lightbox-workshop-4"><img src="images/workshop-3.webp" alt="Коробка с запчастями и рукописными подписями «Петушарня» и «Костыль»" loading="lazy"></div>
+                <div class="photo-stack__frame" data-lightbox-open="lightbox-workshop-5"><img src="images/workshop-4.webp" alt="Велосипед на стойке для ремонта" loading="lazy"></div>
+                <div class="photo-stack__frame" data-lightbox-open="lightbox-workshop-6"><img src="images/workshop-5.webp" alt="Рабочий стол мастера с инструментами" loading="lazy"></div>
+              </div>
+              <div class="photo-stack__caption">вайб велосервиса</div>
+              <div class="photo-stack__nav">
+                <button class="photo-stack__arrow" data-dir="-1" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m8.5 12.8 5.7 5.6c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4l-4.9-5 4.9-5c.4-.4.4-1 0-1.4-.2-.2-.4-.3-.7-.3-.3 0-.5.1-.7.3l-5.7 5.6c-.4.5-.4 1.1 0 1.6 0-.1 0-.1 0 0z"></path></svg></button>
+                <button class="photo-stack__arrow" data-dir="1" aria-label="Следующее фото"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m8.5 12.8 5.7 5.6c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4l-4.9-5 4.9-5c.4-.4.4-1 0-1.4-.2-.2-.4-.3-.7-.3-.3 0-.5.1-.7.3l-5.7 5.6c-.4.5-.4 1.1 0 1.6 0-.1 0-.1 0 0z"></path></svg></button>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <div class="proof-row">
+            <div class="proof-row__text">
+              <p>Показывая команде результаты тестов, я&nbsp;вынесла эту проблему отдельным пунктом. Потом мы&nbsp;разбирали её&nbsp;на&nbsp;созвоне с&nbsp;руководителями велосервиса и&nbsp;бизнес-аналитиком. Выяснилось, что в&nbsp;нём смешались профессиональные термины вроде «кокпита» и&nbsp;названия из&nbsp;прайс-листов разных поставщиков. Дисковый калипер, например, у&nbsp;одного поставщика назывался «калипер», а&nbsp;у&nbsp;другого «машинка задняя чёрная без диска».</p>
+              <p>Исходный список я&nbsp;не&nbsp;перепроверяла, и&nbsp;проблема всплыла только на&nbsp;тестах. Сейчас я&nbsp;бы&nbsp;показала такой список мастерам ещё до&nbsp;макетов.</p>
+            </div>
+            <div class="proof-row__image">
+              <div class="artifact artifact--h">
+                <div class="artifact__frame" data-lightbox-open="lightbox-proof-masha"><img src="images/proof-chat-masha.webp" alt="Сообщение от продакта про причёсывание названий" loading="lazy"></div>
+                <div class="artifact__caption">реакция продакта на&nbsp;находку</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proof-row">
+            <div class="proof-row__text">
+              <h3>Названия переписали и&nbsp;сверили с&nbsp;сервисом</h3>
+              <p>Продакт поставила бизнес-аналитику задачу переработать список. Он&nbsp;переписал его и&nbsp;сверил с&nbsp;теми, кто каждый день работает с&nbsp;велосипедами: координаторами, главными механиками и&nbsp;руководителями велосервиса. В&nbsp;приложение попали названия, понятные мастеру без расшифровки: вместо «калипера» и&nbsp;«машинки задней чёрной без диска» осталось одно название, «калипер дискового тормоза».</p>
+            </div>
+            <div class="proof-row__image">
+              <div class="proof-row__crop" data-lightbox-open="lightbox-ba-chat">
+                <img src="images/proof-chat-vilka.webp" alt="Переписка с бизнес-аналитиком про названия деталей" loading="lazy">
+                <button class="wide-scroll__expand" data-lightbox-open="lightbox-ba-chat" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+              </div>
+              <div class="artifact__caption">переписка с&nbsp;БА&nbsp;про названия</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- РЕШЕНИЕ -->
+      <section class="cblock" id="solution">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 3">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+          </nav>
+          <span class="cblock__title-text">Решение</span>
+          <nav class="section-jump section-jump--after" style="--jn: 1">
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <h3>Перед ремонтом мастер сверяет велосипед с&nbsp;заявкой</h3>
+          <p>Этот шаг мы&nbsp;добавили с&nbsp;бизнес-аналитиком после ревью первых макетов. Пока велосипед ждёт ремонта, его могут повредить при перевозке на&nbsp;сервисный центр, снять с&nbsp;него детали или продолжить на&nbsp;нём ездить. Поэтому мастер сначала сверяет велосипед с&nbsp;фото из&nbsp;заявки: все&nbsp;ли детали на&nbsp;месте и&nbsp;нет&nbsp;ли новых поломок. Так недостачу видно до&nbsp;ремонта, и&nbsp;её&nbsp;не&nbsp;спишут на&nbsp;работу мастера. Потом он&nbsp;уходит чинить, а&nbsp;ремонт остаётся открытым, даже если закрыть приложение: можно вернуться и&nbsp;продолжить с&nbsp;того&nbsp;же шага. Запчасти мастер отмечает по&nbsp;группам. Большинство деталей бизнес разрешил списывать по&nbsp;одной за&nbsp;ремонт, поэтому поле количества я&nbsp;оставила только у&nbsp;тех, которые можно списать больше одной штуки.</p>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-repair">
+              <div class="strip">
+                <img src="images/repair-scenario.webp" alt="Раскадровка сценария ремонта: сканирование QR-кода, карточка велосипеда, сверка с заявкой, выбор запчастей, фото после ремонта" loading="lazy">
+                <span class="strip-cap" style="left:30.6%; top:92.5%">сверка с&nbsp;фото из&nbsp;заявки</span>
+                <span class="strip-cap" style="left:37.3%; top:92.5%">можно уйти чинить и&nbsp;вернуться</span>
+              </div>
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-repair" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+          </div>
+
+          <h3>Потерянная наклейка не&nbsp;создаёт дубль велосипеда</h3>
+          <p>Если QR-кода нет в&nbsp;системе, мастер вводит VIN. Когда такой VIN уже есть, значит, наклейка потерялась или повредилась: новый QR&nbsp;привязывается к&nbsp;этому&nbsp;же велосипеду, и&nbsp;история не&nbsp;теряется. Если VIN новый, открывается пошаговая регистрация.</p>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-registration">
+              <div class="strip">
+                <img src="images/registration-scenario.webp" alt="Раскадровка сценария регистрации: сканирование QR-кода, ввод VIN, выбор бренда и модели, локация, фото VIN-номера и велосипеда" loading="lazy">
+                <span class="strip-cap" style="left:9.07%; top:92.5%">сначала проверяем VIN</span>
+              </div>
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-registration" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+          </div>
+
+          <h3>Последние события в&nbsp;карточке, полная история для расследований</h3>
+          <p>В&nbsp;вебе руководство видит, где велосипеды, в&nbsp;каком они состоянии и&nbsp;что с&nbsp;заявками на&nbsp;ремонт. В&nbsp;карточке велосипеда я&nbsp;показала только последние операции: для общей картины этого хватает. Полная история с&nbsp;ремонтами, перемещениями, приёмками и&nbsp;заменами QR&nbsp;открывается отдельной страницей. Она нужна, когда разбирают пропажу или инцидент и&nbsp;проверяют, например, какой QR&nbsp;раньше числился за&nbsp;велосипедом.</p>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-monitoring-bikes">
+              <img src="images/monitoring-bikes.webp" alt="Раскадровка мониторинга велосипедов: список велосипедов, карточка велосипеда с историей, полная история операций" loading="lazy">
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-monitoring-bikes" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+          </div>
+          <div class="wide-scroll__caption">список велосипедов, карточка велосипеда с&nbsp;историей операций, полная история</div>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-monitoring-requests">
+              <img src="images/monitoring-requests.webp" alt="Раскадровка мониторинга заявок на ремонт: список заявок, карточка заявки с описанием поломки" loading="lazy">
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-monitoring-requests" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+          </div>
+          <div class="wide-scroll__caption">список заявок на&nbsp;ремонт и&nbsp;карточка заявки</div>
+        </div>
+      </section>
+
+      <!-- РЕЗУЛЬТАТ -->
+      <section class="cblock" id="result">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 4">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+          </nav>
+          <span class="cblock__title-text">Результат</span>
+          <nav class="section-jump section-jump--after"></nav>
+        </h2>
+        <div class="cblock__content">
+
+          <div class="subhead">Что показали цифры (декабрь 2022&nbsp;— июль 2023)</div>
+          <div class="metrics metrics--bento">
+            <div class="metric metric--lead"><div class="metric__num">более 27&nbsp;млн&nbsp;₽</div><div class="metric__label">суммарная экономия</div><div class="metric__note">итог работы всей команды и&nbsp;бизнеса</div></div>
+            <div class="metric"><div class="metric__num">до&nbsp;50%</div><div class="metric__label">экономия на&nbsp;закупке</div></div>
+            <div class="metric"><div class="metric__num">с&nbsp;1600&nbsp;до&nbsp;1350&nbsp;₽</div><div class="metric__label">стоимость ремонта</div></div>
+            <div class="metric"><div class="metric__num">с&nbsp;2&nbsp;до&nbsp;4–5</div><div class="metric__label">ремонтов в&nbsp;день на&nbsp;мастера</div></div>
+            <div class="metric"><div class="metric__num">в&nbsp;2&nbsp;раза</div><div class="metric__label">меньше пропаж</div></div>
+            <div class="metric"><div class="metric__num">58</div><div class="metric__label">веломастерских открыто</div></div>
+          </div>
+
+          <div class="subhead">Что сделало это возможным</div>
+          <div class="numbered-grid numbered-grid--tight-bottom">
+            <div class="numbered-card">
+              <div class="numbered-card__num">→ до&nbsp;50% экономии на&nbsp;закупке</div>
+              <div class="numbered-card__title">Закупки по&nbsp;реальному расходу</div>
+              <div class="numbered-card__desc">Мастер отмечает в&nbsp;приложении каждую деталь, поэтому видно, сколько запчастей уходит на&nbsp;самом деле, и&nbsp;закупать можно заранее, а&nbsp;не&nbsp;вслепую</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__num">→ в&nbsp;2&nbsp;раза меньше пропаж</div>
+              <div class="numbered-card__title">Пропажи видно по&nbsp;статистике</div>
+              <div class="numbered-card__desc">Расход запчастей и&nbsp;перемещения велосипедов можно смотреть по&nbsp;каждому даркстору. Если где-то цифры подскочили, это сразу заметно</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__num">→ с&nbsp;2&nbsp;до&nbsp;4–5&nbsp;ремонтов в&nbsp;день</div>
+              <div class="numbered-card__title">Все заявки в&nbsp;одном списке</div>
+              <div class="numbered-card__desc">Мастер видит заявки по&nbsp;всем своим дарксторам и&nbsp;заранее планирует, куда ехать и&nbsp;какие запчасти брать</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__num">→ 58&nbsp;веломастерских</div>
+              <div class="numbered-card__title">Парк виден целиком</div>
+              <div class="numbered-card__desc">Видно, где не&nbsp;хватает велосипедов, и&nbsp;их&nbsp;вовремя перебрасывают между дарксторами. На&nbsp;таком учёте бизнес смог масштабировать велосервис</div>
+            </div>
+            <div class="numbered-card numbered-card--wide">
+              <div class="numbered-card__title">Отклик пользователей</div>
+              <div class="card-quote">
+                <svg class="card-quote__mark" width="22" height="17" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true">
+                  <path d="M13.3 0C6.2 3.1 2 8.4 2 14.6 2 19.8 5.1 23 9.2 23c3.4 0 6-2.5 6-5.9 0-3.2-2.3-5.5-5.3-5.5-.6 0-1.1.1-1.4.2C9 8.2 11.6 4.9 15.8 2.6L13.3 0Zm16.9 0c-7.1 3.1-11.3 8.4-11.3 14.6 0 5.2 3.1 8.4 7.2 8.4 3.4 0 6-2.5 6-5.9 0-3.2-2.3-5.5-5.3-5.5-.6 0-1.1.1-1.4.2.5-3.6 3.1-6.9 7.3-9.2L30.2 0Z"/>
+                </svg>
+                <p class="card-quote__text">Я&nbsp;видел все итерации составления заявок, все стадии. Я&nbsp;застал и&nbsp;Джиру, и&nbsp;чат в&nbsp;телеграме, и&nbsp;Элму видел. И&nbsp;на&nbsp;основе всего этого могу сказать, что Samokat Fix&nbsp;— самое удобное, что только было.</p>
+                <div class="card-quote__author">Веломастер на&nbsp;выезде, г.&nbsp;Тверь</div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Мой набор компонентов стал отправной точкой для дизайн-системы</h3>
+          <div class="proof-row">
+            <div class="proof-row__text">
+              <p>Готового UI-кита под задачи Samokat Fix не&nbsp;было, и&nbsp;компоненты я&nbsp;собрала сама: цвета и&nbsp;лейаут взяла из&nbsp;кита курьерского приложения, остальное спроектировала под свои экраны. Когда я&nbsp;показывала эти экраны на&nbsp;внутреннем митапе дизайнеров, дизайн-директор спросил, откуда компоненты. Этот пример подсветил, что мобильным B2B-продуктам нужна единая дизайн-система. Ею&nbsp;занялся отдельный дизайнер, и&nbsp;первое время я&nbsp;погружала его в&nbsp;контекст: какой компонент и&nbsp;зачем мне понадобился.</p>
+            </div>
+            <div class="proof-row__image">
+              <div class="artifact artifact--h">
+                <div class="artifact__frame" data-lightbox-open="lightbox-ds"><img src="images/design-system-components.webp" alt="Набор компонентов Samokat Fix в Figma: кнопки, инпуты, карточки, модалки, цвета и типографика" loading="lazy"></div>
+                <div class="artifact__caption">набор компонентов Samokat Fix, 2022</div>
+              </div>
+            </div>
+          </div>
+
+          <p>Samokat Fix работает и&nbsp;сейчас: им&nbsp;пользуются около 2500&nbsp;сотрудников дарксторов и&nbsp;операционного блока, в&nbsp;системе более 2000&nbsp;велосипедов.</p>
+
+        </div>
+      </section>
+
+      <!-- БАННЕР «СПАСИБО, ЧТО ДОЧИТАЛИ»: приглашение пообщаться, до переходов к другим кейсам -->
+      <div class="case-banner-row">
+        <div></div>
+        <aside class="case-banner">
+          <div class="case-banner__title">Спасибо, что <span class="nowrap">дочитали<span class="contact__sticker"><img alt="" data-sticker></span></span></div>
+          <p class="case-banner__text">Напишите, если хотите обсудить кейс: покажу макеты и&nbsp;расскажу о&nbsp;решениях подробнее</p>
+          <div class="case-banner__actions">
+            <a class="btn" href="https://t.me/thecurehead" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+            <a class="btn btn--ghost js-copy-email" href="#" data-email="sofiabaranova97@gmail.com">Скопировать e-mail</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ПРЕДЫДУЩИЙ / СЛЕДУЮЩИЙ -->
+      <nav class="case-pager">
+        <a class="pager-link prev" href="case-zony.html">
+          <span class="pager-link__cover"><img src="images/cover-zony-card.webp" alt="" width="1600" height="1200" loading="lazy"></span><div class="pager-link__text"><div class="pager-link__k">Предыдущий кейс</div>
+          <div class="pager-link__t">Оптимизация зон</div></div>
+        </a>
+        <a class="pager-link next" href="case-svyazi.html">
+          <div class="pager-link__text"><div class="pager-link__k">Следующий кейс</div>
+          <div class="pager-link__t">Связи дарксторов</div></div><span class="pager-link__cover"><img src="images/cover-svyazi-card.webp" alt="" width="1600" height="1200" loading="lazy"></span>
+        </a>
+      </nav>
+
+    </article>
+
+    <!-- ЛАЙТБОКСЫ: вынесены из блоков в конец страницы, как в «Связях». Заодно это выравнивает ритм: скрытый лайтбокс последним элементом раздела оставлял лишний отступ снизу -->
+    <div class="lightbox lightbox--photo" id="lightbox-artifact-01"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/artifact-repair-screen.webp" alt="Заявка на ремонт в легаси-решении Elma" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-artifact-02"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/artifact-avito.webp" alt="Рама на Авито" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-artifact-03"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/artifact-tape.webp" alt="Номера на малярном скотче" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-artifact-04"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/artifact-notebook.webp" alt="Рукописная тетрадь распределения по дарксторам" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-artifact-05"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/artifact-sheets.webp" alt="Таблица учёта ремонта в Google Sheets" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-artifact-06"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/artifact-journal-tmc.webp" alt="Журнал выдачи ТМЦ" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-scan-qr-mechanic"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/scan-qr-mechanic.webp" alt="Веломастер сканирует QR-код на раме велосипеда" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-scan-qr-screens"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/scan-qr-screens.webp" alt="Экран сканирования QR-кода и открывшаяся карточка велосипеда" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-workshop-1"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/workshop-6.webp" alt="Картонная табличка от руки: «сломан петух»" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-workshop-2"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/workshop-1.webp" alt="Склад с велосипедами в мастерской" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-workshop-3"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/workshop-2.webp" alt="Мастер ремонтирует велосипед" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-workshop-4"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/workshop-3.webp" alt="Коробка с запчастями и рукописными подписями «Петушарня» и «Костыль»" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-workshop-5"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/workshop-4.webp" alt="Велосипед на стойке для ремонта" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-workshop-6"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/workshop-5.webp" alt="Рабочий стол мастера с инструментами" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-proof-masha"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/proof-chat-masha.webp" alt="Сообщение от продакта про причёсывание названий" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-ba-chat"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/proof-chat-vilka.webp" alt="Переписка с бизнес-аналитиком про названия деталей" loading="lazy"></div></div>
+    <div class="lightbox" id="lightbox-repair"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><div class="strip"><img src="images/repair-scenario.webp" alt="Раскадровка сценария ремонта: сканирование QR-кода, карточка велосипеда, сверка с заявкой, выбор запчастей, фото после ремонта" loading="lazy"><span class="strip-cap" style="left:30.6%; top:92.5%">сверка с&nbsp;фото из&nbsp;заявки</span><span class="strip-cap" style="left:37.3%; top:92.5%">можно уйти чинить и&nbsp;вернуться</span></div></div></div>
+    <div class="lightbox" id="lightbox-registration"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><div class="strip"><img src="images/registration-scenario.webp" alt="Раскадровка сценария регистрации: сканирование QR-кода, ввод VIN, выбор бренда и модели, локация, фото VIN-номера и велосипеда" loading="lazy"><span class="strip-cap" style="left:9.07%; top:92.5%">сначала проверяем VIN</span></div></div></div>
+    <div class="lightbox" id="lightbox-monitoring-bikes"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/monitoring-bikes.webp" alt="Раскадровка мониторинга велосипедов: список велосипедов, карточка велосипеда с историей, полная история операций" loading="lazy"></div></div>
+    <div class="lightbox" id="lightbox-monitoring-requests"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/monitoring-requests.webp" alt="Раскадровка мониторинга заявок на ремонт: список заявок, карточка заявки с описанием поломки" loading="lazy"></div></div>
+    <div class="lightbox lightbox--photo" id="lightbox-ds"><button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button><div class="lightbox__scroll"><img src="images/design-system-components.webp" alt="Набор компонентов Samokat Fix в Figma: кнопки, инпуты, карточки, модалки, цвета и типографика" loading="lazy"></div></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

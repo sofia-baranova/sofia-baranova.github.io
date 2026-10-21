@@ -1,0 +1,1015 @@
+/* =========================================================
+   Портфолио — общие стили. Десктоп-first.
+   Белый фон, чёрный текст, серый вторичный. Lowercase-дисплей.
+   ========================================================= */
+
+/* ---------- Шрифт заголовков: PP Neue Montreal ---------- */
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("fonts/PPNeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 100 550; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("fonts/PPNeueMontreal-Semibold.woff2") format("woff2");
+  font-weight: 551 900; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* цвета — тема «холодная бумага» (20.10). Записаны по ролям: чтобы сменить тему, достаточно поменять значения здесь */
+  --bg:          #e3e5e8; /* фон страницы — холодный светло-серый */
+  --ink:         #262628; /* заголовки, жирный текст, тёмная кнопка — графит */
+  --text:        #353536; /* текст абзацев */
+  --ink-2:       #585c60; /* серые подписи и мета — один серый на весь сайт */
+  --ink-3:       #585c60; /* бывший второй серый, теперь совпадает с первым */
+  --surface:     #eeeff1; /* карточки и плашки — светлее фона; светлая кнопка */
+  --surface-2:   #f3f4f5;
+  --stage:       #d3d7db; /* подложка под раскадровки, иллюстрации, наброски и баннер «спасибо» */
+  --border:      #cfd2d5;
+  --accent:      #262628;
+
+  /* основной текст — системный шрифт (SF Pro на Mac/iPhone, Segoe UI на Windows, Roboto на Android) */
+  --font: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  /* заголовки — PP Neue Montreal (бесплатная версия для личного портфолио, файлы в fonts/) */
+  --font-display: "PP Neue Montreal", var(--font);
+
+  --fs-hero: 3rem;
+  --fs-h1:   1.75rem;
+  --fs-h2:   1.5rem;
+  --fs-h3:   1rem;
+  --fs-body: 1rem;
+  --fs-sm:   0.875rem;
+  --fs-meta: 0.75rem;
+
+  --lh-body: 1.55;
+  --lh-tight: 1.12;
+
+  --maxw: 1148px; /* колонка контента кейса 780: 240 + 64 + 780 + поля 2×32 */
+  --radius: 8px;     /* карточки, плашки, обложки (было 16 — 21.10 сделали строже) */
+  --radius-sm: 6px;  /* мелкие элементы: мини-обложки, ячейки, лента — меньше большого, чтобы маленькое не было круглее крупного */
+  --radius-logo: 12px; /* логотипы компаний 44–48 px — исключение: пропорция иконки приложения, отдельный предмет, а не плашка */
+  --header-h: 64px;
+
+  /* «стекло» шапки: белый 55% и сильный блюр — под шапкой видны мягкие пятна контента, меню читается (вариант C из сравнения 19.10) */
+  --glass-bg: rgba(227,229,232,0.55); /* фон страницы на 55% */
+  --glass-blur: saturate(160%) blur(32px);
+
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: 24px;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.2px;
+  font-synthesis: none;
+}
+
+/* заголовки — PP Neue Montreal */
+.brand, .hero__title, .cases__head h2, .case-card__title, .experience > h2,
+.exp-card__company, .contact__title, .case-hero__company, .case-hero__title,
+.cblock__title, .cblock__content .subhead, .cblock__content h3,
+.metric__num, .numbered-card__title, .user-group__title, .pager-link__t {
+  font-family: var(--font-display);
+}
+/* выравнивание строк: браузер сам выбирает, где перенести строку (буквы и пробелы не меняются).
+   Заголовки — строки примерно равной длины; абзацы — без одного слова в последней строке. Старые браузеры просто игнорируют */
+.hero__title, .cases__head h2, .case-card__title, .case-card__desc, .experience > h2,
+.contact__title, .case-hero__title, .cblock__content h3, .cblock__content .subhead,
+.numbered-card__title, .user-group__title, .metric__label, .pager-link__t,
+.figure figcaption, .wide-scroll__caption, .artifact__caption, .artifact-board-caption, .photo-stack__caption { text-wrap: balance; }
+p, li, td, .hero__lead, .case-hero__lead, .numbered-card__desc, .metric__note,
+.speech-bubble__text, .card-quote__text, .pullquote__text, .split__text, .attribution, .user-group__task { text-wrap: pretty; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, p, ul, figure, blockquote { margin: 0; }
+ul { padding: 0; list-style: none; }
+button { font: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+/* lowercase-дисплей (тело абзацев остаётся в обычном регистре) */
+.brand, .nav a, .hero__title, .cases__head h2, .case-card__title,
+.case-card__desc, .case-hero__title, .case-hero__meta, .case-hero__company,
+.cblock__title, .split__label, .metric__label, .metric__note,
+.experience > h2, .exp-card__company, .exp-card__role, .tag,
+.cta__title, .contact__title, .btn, .pager-link__k, .pager-link__t,
+.figure figcaption {
+  text-transform: lowercase;
+}
+/* исключение из lowercase-дисплея: аббревиатуры (ML) остаются заглавными */
+.keep-case { text-transform: none; }
+
+/* --------------------------- шапка --------------------------- */
+.header {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--header-h); z-index: 100;
+  display: flex; align-items: center;
+  /* без нижней линии: край шапки и так читается по размытому контенту под ней */
+}
+/* стекло шапки — отдельный слой. Когда на телефоне открыто меню, этот же слой плавно вытягивается вниз под пункты:
+   стекло одно, поэтому нет ни шва между шапкой и меню, ни мигания при открытии */
+.header::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: -1;
+  height: var(--header-h);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid transparent;
+  transition: height .2s ease, border-color .2s ease;
+}
+.header__inner {
+  width: 100%; max-width: var(--maxw); margin: 0 auto;
+  padding: 0 var(--s6);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { font-weight: 600; font-size: 1rem; line-height: 24px; letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: var(--s6); }
+.nav a, .nav-mobile a { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); cursor: pointer; transition: color .15s ease; }
+.nav a:hover, .nav-mobile a:hover { color: var(--ink); }
+.nav-toggle { display: none; }
+.nav-mobile { display: none; }
+
+/* основной контейнер */
+.page {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: calc(var(--header-h) + var(--s8)) var(--s6) var(--s9);
+}
+[id] { scroll-margin-top: calc(var(--header-h) + var(--s5)); }
+
+/* ======================= ГЛАВНАЯ ======================= */
+.hero {
+  display: grid; grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--s8); align-items: center;
+  min-height: calc(100vh - var(--header-h) - var(--s9) - 120px);
+}
+.hero__title { /* самый крупный текст страницы: 48, финальное «давайте пообщаемся» меньше (40) */
+  font-size: 3rem; line-height: 52px; letter-spacing: -0.02em;
+  font-weight: 600; margin-bottom: var(--s5);
+}
+.hero__lead { font-size: 1.125rem; line-height: 28px; color: var(--ink); max-width: 46ch; } /* основной текст — чёрный; серый только для вторичного */
+.hero__lead strong { color: var(--ink); font-weight: 600; }
+.hero__photo {
+  aspect-ratio: 4 / 5; border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+}
+.hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* кейсы */
+.cases { margin-top: calc(var(--s9) + var(--s7)); padding-top: var(--s7); }
+.cases__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: var(--s5);
+}
+.cases__head h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.01em; line-height: 32px; }
+.cases__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
+.case-card { display: flex; flex-direction: column; } /* карточки в ряду одной высоты */
+.case-card .tags { margin-top: auto; } /* теги прижаты к низу: описание в 1 или 2 строки не сбивает их по высоте */
+.case-card__cover {
+  aspect-ratio: 4 / 3; border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+  margin-bottom: var(--s4); transition: transform .2s ease;
+}
+.case-card__cover img { width: 100%; height: 100%; object-fit: cover; }
+.case-card:hover .case-card__cover { transform: translateY(-4px); }
+.case-card__title { font-size: var(--fs-h3); font-weight: 600; letter-spacing: 0; line-height: 24px; margin-bottom: var(--s2); }
+.case-card__desc { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); margin-bottom: var(--s3); }
+.tags { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.tag { font-size: var(--fs-meta); line-height: 16px; color: var(--ink-2); background: var(--surface); border-radius: 999px; padding: 2px 10px 4px; } /* сверху на 2 px меньше: строчные иначе проседают (как у чипсов) */
+
+.ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-3); font-size: var(--fs-meta); line-height: 16px;
+  background: repeating-linear-gradient(45deg, #f0f0f2 0 12px, #f4f4f5 12px 24px);
+}
+
+/* ======================= ОПЫТ ======================= */
+/* по сетке карточек кейсов: заголовок в 1-й колонке (закреплён при скролле), список во 2-й и 3-й.
+   Компактный список в плашке цвета карточек: сразу видно компанию, годы и роль, достижения раскрываются по клику (21.10).
+   Первая компания раскрыта заранее — подсказывает, что остальные тоже открываются */
+.experience {
+  margin-top: calc(var(--s9) + var(--s6));
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--s5); align-items: start;
+}
+.experience > h2 {
+  font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.01em; line-height: 32px;
+  position: sticky; top: calc(var(--header-h) + var(--s6));
+  margin-top: 22px; /* 16 поле строки + 6: строка 32 встаёт по центру первого логотипа (44) */
+}
+.exp-items {
+  grid-column: 2 / span 2;
+  background: var(--surface); border-radius: var(--radius); overflow: hidden; /* плашка #eeeff1 — как карточки в кейсах */
+  interpolate-size: allow-keywords; /* нужно для плавного раскрытия */
+}
+.exp-row + .exp-row { border-top: 1px solid var(--border); } /* компании разделены тонкой линией */
+.exp-row > summary { list-style: none; cursor: pointer; padding: var(--s4) var(--s5); }
+.exp-row > summary::-webkit-details-marker { display: none; }
+.exp-row > summary:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.exp-row__chev { margin-left: auto; flex: none; align-self: center; color: var(--ink-2); transition: transform .25s ease, color .15s ease; }
+.exp-row > summary:hover .exp-row__chev { color: var(--ink); } /* при наведении темнеет только стрелка, без подсветки строки */
+.exp-row[open] .exp-row__chev { transform: rotate(180deg); }
+/* плавное раскрытие там, где браузер это умеет; в остальных — просто открывается */
+.exp-row::details-content { height: 0; overflow: clip; transition: height .25s ease, content-visibility .25s allow-discrete; }
+.exp-row[open]::details-content { height: auto; }
+
+.exp-item__head { display: flex; align-items: center; gap: var(--s3); }
+.exp-item__copy { min-width: 0; }
+.exp-card__logo { flex: none; width: 44px; height: 44px; border-radius: var(--radius-logo); background: var(--surface); overflow: hidden; }
+.exp-card__logo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter .2s ease; } /* логотипы чёрно-белые: цветные квадраты перетягивали внимание с обложек кейсов */
+.exp-row:hover .exp-card__logo img { filter: none; } /* цвет возвращается при наведении на компанию */
+/* годы сразу за названием компании — читаются вместе с ним */
+.exp-item__title { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: var(--s2); }
+.exp-card__company { font-size: var(--fs-h3); font-weight: 600; letter-spacing: 0; line-height: 24px; } /* 16 — как название кейса в карточке: опыт тише кейсов */
+.exp-item__dates { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-3); white-space: nowrap; }
+.exp-card__role { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); }
+/* достижения (двойной класс — чтобы перебить общий стиль списков из кейсов ниже по файлу): 14 — как описание кейса, ключевые цифры чёрным жирным.
+   Точки висят слева от текста: текст на одной линии с названием компании, правый край точки = правый край логотипа */
+.bullets.exp-item__bullets { margin: 0; gap: var(--s3); padding: 0 var(--s5) var(--s5) calc(var(--s5) + 56px); }
+.bullets.exp-item__bullets li { margin-left: -16px; gap: var(--s3); font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); }
+.bullets.exp-item__bullets li::before { width: 4px; height: 4px; background: var(--ink-3); margin-top: 8px; } /* точка 4 по центру строки 20 */
+.bullets.exp-item__bullets li b { color: var(--ink); font-weight: 600; }
+
+/* ======================= КОНТАКТ / ФУТЕР ======================= */
+.contact {
+  text-align: center; margin-top: calc(var(--s9) + var(--s6));
+  padding: var(--s7) 0 var(--s9); /* снизу 96 — воздух до подвала */
+}
+.contact__title { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 44px; margin-bottom: var(--s5); } /* меньше заголовка первого экрана (48); до кнопки 24 */
+/* гифка-пасхалка: высота по строке заголовка, ширина — по пропорциям конкретной гифки (они разные), ничего не обрезается */
+.contact__sticker { display: inline-flex; align-items: flex-end; height: 0.85em; vertical-align: -0.08em; margin-left: 0.12em; } /* увеличенная гифка растёт вверх от линии текста, высота строки не меняется */
+.contact__sticker img { height: calc(100% * var(--sticker-k, 1)); width: auto; } /* --sticker-k — коэффициент увеличения для мелких персонажей, задаётся в script.js */
+.contact__sticker img.is-scaled { transform: translateY(0.1em); } /* увеличенные (Соник, Человек-паук, ковбой) опущены: 0.1em = 5 px при заголовке 48 px, на телефоне пропорционально меньше */
+/* «давайте пообщаемся» на главной: текст всегда строго по центру над кнопкой, гифка висит справа и не сдвигает его (гифки разной ширины) */
+.contact__line { position: relative; }
+.contact__line .contact__sticker { position: absolute; left: 100%; bottom: 0.17em; height: auto; width: max-content; margin-left: var(--s3); } /* 12 px от последней буквы; 0.17em снизу — гифка стоит на той же высоте, что раньше в строке */
+.contact__line .contact__sticker img { height: calc(0.85em * var(--sticker-k, 1)); flex: none; } /* вне строки высота задаётся напрямую, иначе браузер схлопывает ширину гифки в ноль */
+.contact__actions { display: flex; justify-content: center; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  background: var(--ink); color: #fff; border: none; border-radius: 999px;
+  padding: 13px 24px 15px; font-size: var(--fs-body); font-weight: 500; /* сверху на 2 меньше: строчные буквы шрифт рисует ниже середины строки; 13/15 — оптическая поправка на глаз (нечётные осознанно), высота та же 52 */
+  cursor: pointer; transition: opacity .15s ease;
+}
+.btn:hover { opacity: 0.85; }
+
+/* баннер «спасибо, что дочитали» в конце кейса, перед переходами к другим кейсам. Серый, как остальные плашки; акцентный цвет — после работы над палитрой */
+/* баннер шириной с текст кейса: та же сетка, что у разделов (240 + 64 + колонка текста), левая ячейка пустая */
+.case-banner-row { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--s8); } /* от последнего абзаца «Результата» 48 — нижний отступ самого раздела */
+.case-banner { background: var(--stage); border-radius: var(--radius); padding: var(--s6); }
+.case-banner__title { font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 40px; letter-spacing: -0.02em; text-transform: lowercase; margin-bottom: var(--s3); text-wrap: balance; } /* как заголовок кейса в шапке */
+.case-banner__text { font-size: var(--fs-body); line-height: 24px; color: var(--text); max-width: 600px; margin-bottom: var(--s5); text-wrap: pretty; } /* как текст кейса */
+.case-banner__actions { display: flex; flex-wrap: wrap; gap: var(--s3); }
+.case-banner .contact__sticker { height: 1.15em; transform: translateY(0.125em); margin-left: var(--s3); } /* 12 px от последней буквы, как на главной */
+.nowrap { white-space: nowrap; } /* последнее слово и гифка не разрываются переносом строки */ /* заголовок баннера мельче, чем «давайте пообщаемся», поэтому гифка относительно крупнее: ~37 px вместо 27; опущена на 0.125em (4 px), чтобы стояла на линии текста, а не над ней */
+.case-banner .contact__sticker img.is-tall { transform: translateY(-2px); } /* инопланетянин, крыса, ковбой, роблокс, человек-паук, сквидвард — на 2 px выше */
+.case-banner .contact__sticker img.is-tall.is-scaled { transform: translateY(calc(0.1em - 2px)); } /* ковбой и человек-паук: увеличены и опущены на 0.1em, плюс те же 2 px вверх */
+.btn--ghost { background: var(--surface); color: var(--ink); } /* вторичная кнопка — цвет карточек, белая выделялась сильнее основной */
+
+/* ======================= КЕЙС ======================= */
+.case { max-width: var(--maxw); }
+
+/* шапка кейса: слева лого+компания+мета, справа заголовок+лид+обложка */
+.case-hero {
+  display: grid; grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--s8); align-items: start; margin-bottom: var(--s7);
+}
+.case-hero__logo { width: 48px; height: 48px; border-radius: var(--radius-logo); background: #fff; border: 1px solid var(--border); overflow: hidden; margin-bottom: var(--s4); }
+.case-hero__logo img { width: 100%; height: 100%; object-fit: cover; }
+.case-hero__company { font-size: var(--fs-h3); font-weight: 600; letter-spacing: 0; line-height: 24px; }
+.case-hero__meta { font-size: var(--fs-meta); color: var(--ink-2); margin-top: var(--s2); line-height: 16px; }
+.case-hero__title { font-size: 2rem; font-weight: 600; line-height: 40px; letter-spacing: -0.02em; margin-top: -0.06em; margin-bottom: var(--s4); }
+.case-hero__lead { font-size: var(--fs-body); color: var(--text); }
+.case-hero__cover { margin-top: var(--s6); aspect-ratio: 16 / 9; border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.case-hero__cover img { width: 100%; height: 100%; object-fit: cover; }
+
+/* блок кейса: слева залипающий заголовок, справа контент */
+.cblock {
+  display: grid; grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--s8); align-items: start;
+  padding: var(--s7) 0;
+}
+.cblock__title {
+  position: sticky; top: calc(var(--header-h) + var(--s6));
+  display: flex; flex-direction: column;
+  font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.01em;
+  line-height: 32px;
+}
+.cblock__title-text { color: var(--ink); }
+
+/* при наведении на заголовок раздела вокруг него по порядку появляются остальные разделы кейса — те, что раньше, сверху, те, что позже, снизу; --jn (кол-во ссылок, задаётся в html) даёт анимации именно ту высоту, что нужна — раньше был запас "с запасом" в 160px, из-за которого короткие списки открывались почти мгновенно, а не плавно */
+.section-jump {
+  --jn: 0;
+  display: flex; flex-direction: column;
+  max-height: 0; overflow: hidden;
+  opacity: 0;
+  transition: max-height .25s ease-out, opacity .2s ease-out, margin .25s ease-out;
+}
+.cblock__title:hover .section-jump { max-height: calc(var(--jn) * 22px); opacity: 1; }
+.cblock__title:hover .section-jump--before:has(a) { margin-bottom: var(--s2); }
+.cblock__title:hover .section-jump--after:has(a) { margin-top: var(--s2); }
+
+.section-jump a {
+  font-family: var(--font);
+  font-size: var(--fs-sm); font-weight: 400; color: var(--ink-3);
+  line-height: 22px; cursor: pointer; transition: color .15s ease;
+}
+.section-jump a:hover { color: var(--ink-2); }
+.cblock__content { max-width: none; min-height: 128px; } /* не ниже раскрытого заголовка с 4 разделами (4×22 + 8 + 32): иначе в коротком «Результате» при наведении съезжал вниз футер */
+.cblock__content > *:first-child { margin-top: 0; }
+.cblock__content > p { margin-bottom: var(--s4); color: var(--text); }
+.cblock__content .subhead { font-weight: 600; font-size: 1.125rem; line-height: 24px; letter-spacing: 0; margin: var(--s7) 0 var(--s4); }
+.cblock__content .subhead:first-child { margin-top: 0; }
+.cblock__content .subhead + .metrics,
+.cblock__content .subhead + .numbered-grid { margin-top: 0; }
+.cblock__content h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: 0; margin: var(--s7) 0 var(--s4); line-height: 24px; }
+.cblock__content h3:first-child { margin-top: 0; }
+.ph--real { background: repeating-linear-gradient(45deg, #eef4ee 0 12px, #f4f8f4 12px 24px); }
+.ph--draw { background: repeating-linear-gradient(45deg, #f4f0ee 0 12px, #f8f5f4 12px 24px); }
+.cblock__content > p:last-child { margin-bottom: 0; }
+.cblock__content > *:last-child { margin-bottom: 0; } /* последний элемент блока не добавляет пустоту перед следующим разделом */
+.cblock__content .lead { color: var(--ink); font-size: var(--fs-h3); line-height: 24px; }
+.cblock__content p + .figure { margin-top: var(--s3); }
+.cblock__content .figure:has(+ p) { margin-bottom: 0; }
+.cblock__content .figure + p { margin-top: var(--s4); }
+.cblock__content .figure + p.lead-gap-lg { margin-top: var(--s7); }
+.cblock__content p + .wide-scroll { margin-top: var(--s3); }
+.wide-scroll { margin-bottom: var(--s7); }
+.wide-scroll:has(+ .wide-scroll__caption) { margin-bottom: 0; }
+.wide-scroll__caption {
+  margin-top: var(--s2); margin-bottom: var(--s7);
+  text-align: center; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3);
+}
+.cblock__content p.section-gap { margin-top: var(--s7); }
+
+
+/* буллеты */
+.bullets { display: grid; gap: var(--s3); margin: var(--s5) 0; }
+.bullets li { display: flex; gap: var(--s3); font-size: var(--fs-body); color: var(--text); }
+.bullets li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 0.6em; flex: none; }
+.bullets li b { color: var(--ink); font-weight: 600; }
+
+/* сплит проблема/решение */
+.split {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s6);
+  margin: var(--s5) 0; padding: var(--s6) 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.split__col + .split__col { border-left: 1px solid var(--border); padding-left: var(--s6); }
+.split__label { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); margin-bottom: var(--s3); }
+.split__text { font-size: 1rem; line-height: 24px; letter-spacing: -0.01em; font-weight: 500; }
+
+/* метрики */
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); margin: var(--s5) 0; }
+.metrics.metrics--2 { grid-template-columns: repeat(2, 1fr); }
+.metric { background: var(--surface); border-radius: var(--radius); padding: var(--s5); }
+.metric__num { font-size: var(--fs-h2); font-weight: 600; letter-spacing: 0; line-height: 32px; margin-bottom: var(--s1); }
+.metric__label { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); }
+.metric__note { font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); margin-top: var(--s2); }
+
+/* пометка про атрибуцию */
+.attribution {
+  font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2);
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: var(--s4) var(--s5); margin: var(--s5) 0;
+}
+
+/* пронумерованные карточки (проблема / что изменилось) */
+.numbered-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: var(--s4); margin: var(--s5) 0;
+}
+.numbered-grid:has(+ .artifact-board-frame) { margin-bottom: 0; }
+.numbered-grid--tight-bottom { margin-bottom: var(--s4); }
+.numbered-card { background: var(--surface); border-radius: var(--radius); padding: var(--s5); }
+.numbered-card--wide { grid-column: 1 / -1; }
+.numbered-card__num { font-size: var(--fs-sm); line-height: 20px; color: var(--ink-3); margin-bottom: var(--s2); }
+.numbered-card__title { font-weight: 600; font-size: var(--fs-h3); line-height: 24px; letter-spacing: 0; margin-bottom: var(--s2); }
+.numbered-card__desc { color: var(--ink-2); font-size: var(--fs-sm); line-height: 20px; }
+
+
+/* цитата внутри широкой карточки — значок кавычки теперь svg, чтобы выглядел одинаково на любой ОС/без установленного шрифта */
+.card-quote { position: relative; margin-top: var(--s4); padding-left: 32px; }
+.card-quote__mark { position: absolute; left: 0; top: 2px; color: var(--ink-3); opacity: .45; } /* светлее основного серого: кавычка — украшение, не текст */
+.card-quote__text { font-size: var(--fs-h3); line-height: 24px; color: var(--ink); }
+.card-quote__author { margin-top: var(--s3); font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); font-style: italic; text-align: right; }
+
+/* россыпь речевых пузырей: список по левому краю, аватарка слева от бабла, хвостик сбоку */
+.quote-scatter {
+  display: flex; flex-direction: column; gap: var(--s3);
+  margin: var(--s6) 0;
+}
+.speech-bubble { display: flex; align-items: flex-end; gap: var(--s3); align-self: flex-start; }
+.speech-bubble-exchange {
+  display: flex; flex-direction: column; gap: var(--s3);
+}
+.speech-bubble-exchange .speech-bubble--reply { align-self: flex-end; }
+.speech-bubble__text {
+  position: relative; z-index: 1;
+  background: var(--surface); border-radius: 18px;
+  padding: var(--s3) var(--s4);
+  font-size: var(--fs-sm); line-height: 20px; color: var(--ink);
+}
+.speech-bubble__text::after {
+  content: "";
+  position: absolute; left: -7px; bottom: 10px;
+  width: 0; height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 8px solid var(--surface);
+}
+.speech-bubble--reply .speech-bubble__text::after {
+  left: auto; right: -7px;
+  border-right: 0;
+  border-left: 8px solid var(--surface);
+}
+.speech-bubble__avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border); /* кружок эмодзи — цвет карточек, не белый (и у пузырей-цитат, и в группах заказчиков/пользователей) */
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.0625rem; flex: none;
+}
+
+/* цитата с декоративной кавычкой (как у Shuvalov) */
+.pullquote {
+  position: relative; background: var(--surface); border-radius: var(--radius);
+  padding: var(--s6) var(--s6) var(--s6) 56px; margin: var(--s5) 0;
+}
+.pullquote::before {
+  content: "\201C"; position: absolute; left: 20px; top: 4px;
+  font-size: 3rem; line-height: 1; font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink-3);
+}
+.pullquote__text { font-size: 1rem; line-height: 24px; letter-spacing: -0.01em; }
+.pullquote__author { margin-top: var(--s4); font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2); font-style: italic; text-align: right; }
+
+/* таблица */
+.table-wrap { margin: var(--s5) 0; overflow-x: auto; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); line-height: 20px; }
+table.tbl th, table.tbl td { text-align: left; padding: var(--s3) var(--s4); border-bottom: 1px solid var(--border); }
+table.tbl th { color: var(--ink-2); font-weight: 500; }
+
+/* общий ряд: цитаты слева, стопка фото мастерской справа */
+.process-scene { display: flex; align-items: flex-start; gap: var(--s7); margin: var(--s6) 0; }
+.process-scene .quote-scatter { flex: 1; min-width: 0; margin: 0; }
+.process-scene .photo-stack-block { flex: none; margin: var(--s4) var(--s5) 0 0; }
+
+/* стопка фото мастерской: наклонённые карточки, листаются стрелками */
+.photo-stack-block { display: flex; flex-direction: column; align-items: center; margin: var(--s7) 0; }
+.photo-stack { position: relative; }
+.photo-stack__frames { position: relative; width: 220px; aspect-ratio: 3 / 4; }
+.photo-stack__shadow {
+  position: absolute; inset: 0; z-index: 0;
+  border-radius: 2px; background: var(--surface); border: 6px solid var(--surface); /* рамки фото и скринов — цвет карточек, не белый: на сером фоне белое слишком выделялось */
+  outline: 1px solid var(--border);
+  transform: rotate(var(--tilt, 0deg));
+}
+.photo-stack__frame {
+  position: absolute; inset: 0; z-index: 1;
+  border-radius: 2px; overflow: hidden;
+  background: var(--surface); border: 6px solid var(--surface);
+  outline: 1px solid var(--border);
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.photo-stack__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-stack__frame.is-active { opacity: 1; pointer-events: auto; z-index: 2; }
+.photo-stack__frame.is-active.is-hover-zoom { transform: scale(1.5); z-index: 3; }
+.photo-stack__nav { display: flex; justify-content: center; gap: var(--s5); margin-top: var(--s4); }
+.photo-stack__caption { margin-top: var(--s4); font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); text-align: center; }
+.photo-stack__arrow {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border: none; background: none; border-radius: 50%;
+  color: var(--ink-2); cursor: pointer; padding: 0;
+  transition: color .15s ease, background .15s ease;
+}
+.photo-stack__arrow svg { width: 18px; height: 18px; display: block; }
+.photo-stack__arrow[data-dir="-1"] svg { margin-right: 2px; }
+.photo-stack__arrow[data-dir="1"] svg { transform: scaleX(-1); margin-left: 2px; }
+.photo-stack__arrow:hover { color: var(--ink); background: var(--surface); }
+.figure { margin: var(--s6) 0; }
+.figure--tight-bottom { margin-bottom: var(--s4); }
+.figure__box { position: relative; border-radius: var(--radius); background: var(--stage); aspect-ratio: 16 / 9; overflow: hidden; }
+.figure__box img { width: 100%; height: 100%; object-fit: cover; }
+.figure figcaption { margin-top: var(--s3); font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); text-align: center; }
+
+/* подложка под PNG-иллюстрацию без фона: фон карточки задаётся тут же в CSS, при смене цвета файл перезаливать не нужно */
+.figure__box--illustration {
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--s3);
+  background: var(--stage); /* поменять здесь при смене цвета блоков — картинка не тронется */
+  cursor: pointer;
+}
+.figure__box--illustration img {
+  width: auto; height: auto; max-width: 99%; max-height: 99%; object-fit: contain;
+}
+.figure__box .wide-scroll__expand { opacity: 0; transition: opacity .15s ease; }
+.figure__box:hover .wide-scroll__expand { opacity: 1; }
+
+/* пара квадратных иллюстраций в ряд — картинка со своим (непрозрачным) фоном слева, экраны на прозрачном фоне справа */
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin: var(--s4) 0; }
+.figure-pair .figure { margin: 0; }
+.figure__box--square { aspect-ratio: 1 / 1; }
+
+/* доска артефактов «было»: три независимые колонки — без дыр между гориз./верт. фото */
+.artifact-board-frame {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: var(--s5) var(--s6);
+  margin: var(--s6) 0 var(--s4);
+}
+.numbered-grid + .artifact-board-frame { margin-top: var(--s4); }
+.artifact-board {
+  display: flex; align-items: center; gap: var(--s6);
+  padding: var(--s3) 0;
+}
+.artifact-col { flex: 1; display: flex; flex-direction: column; gap: var(--s6); min-width: 0; }
+.artifact-col--center { gap: var(--s5); }
+.artifact-board-frame--compact .artifact-board { justify-content: center; }
+.artifact-board-frame--compact .artifact-col { flex: 0 1 auto; }
+.artifact-board-frame--compact .artifact-col:nth-child(1) { max-width: 150px; }
+.artifact-board-frame--compact .artifact-col:nth-child(2) { max-width: 220px; }
+.artifact__frame {
+  position: relative; z-index: 1;
+  border-radius: 2px; overflow: hidden;
+  background: var(--surface); border: 6px solid var(--surface);
+  outline: 1px solid var(--border);
+  transition: transform .25s ease;
+  cursor: pointer;
+}
+.artifact__frame img { width: 100%; height: auto; display: block; }
+.artifact--h:hover .artifact__frame { transform: scale(2.2); z-index: 5; }
+.artifact--v:hover .artifact__frame { transform: scale(1.4); z-index: 5; }
+.artifact__caption {
+  margin-top: var(--s2); text-align: center;
+  font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3);
+}
+.artifact-board-caption {
+  margin-top: var(--s5); text-align: center;
+  font-size: var(--fs-h3); line-height: 24px; color: var(--ink-3);
+}
+
+/* построчно: текст слева гибкий, скрин справа фиксированной ширины */
+.proof-row { display: flex; align-items: flex-start; gap: var(--s6); margin: var(--s6) 0; }
+.proof-row + .proof-row { margin-top: var(--s7); }
+.proof-row__text { flex: 1; min-width: 0; }
+.proof-row__text p, .proof-row__text h3 { margin: 0 0 var(--s4); }
+.proof-row__text > *:last-child { margin-bottom: 0; }
+.proof-row__image { flex: none; width: 220px; margin-right: var(--s5); }
+
+/* обрезанный скрин: сверху видна только верхняя часть, клик открывает полный скрин в лайтбоксе */
+.proof-row__crop {
+  position: relative; height: 216px;
+  border-radius: 2px; overflow: hidden;
+  background: var(--surface); border: 6px solid var(--surface); outline: 1px solid var(--border);
+  cursor: pointer;
+}
+.proof-row__crop img { width: 100%; height: auto; display: block; }
+.proof-row__crop .wide-scroll__expand { opacity: 0; transition: opacity .15s ease; }
+.proof-row__crop:hover .wide-scroll__expand { opacity: 1; }
+
+/* группы пользователей: роли + задача, вместо иллюстрации */
+.user-groups { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-bottom: var(--s6); }
+.user-group { background: var(--surface); border-radius: var(--radius); padding: var(--s5) var(--s6); }
+.user-group__title { font-weight: 600; font-size: var(--fs-h3); line-height: 24px; letter-spacing: 0; margin-bottom: var(--s5); }
+.user-group__roles { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: var(--s5) var(--s4); margin: 0 0 var(--s5); padding: 0; list-style: none; }
+.user-group__roles li { display: flex; flex-direction: column; align-items: center; gap: var(--s2); text-align: center; }
+.role-emoji { font-size: 1.75rem; line-height: 1; }
+.role-label { font-size: var(--fs-meta); color: var(--ink-2); line-height: 16px; }
+.user-group__task { font-size: var(--fs-sm); color: var(--ink-2); line-height: 20px; padding-top: var(--s4); border-top: 1px solid var(--border); }
+.user-group__task-label { font-weight: 600; color: var(--ink); }
+
+/* широкая горизонтальная лента: один длинный сценарий, скроллится drag'ом и колёсиком */
+.wide-scroll { position: relative; }
+.wide-scroll .wide-scroll__expand { opacity: 0; transition: opacity .15s ease; }
+.wide-scroll:hover .wide-scroll__expand { opacity: 1; }
+.wide-scroll__track {
+  display: flex; align-items: center; overflow-x: auto; overflow-y: hidden;
+  border-radius: var(--radius); background: var(--stage);
+  cursor: grab; scroll-behavior: smooth;
+  scrollbar-width: thin; scrollbar-color: var(--ink-3) transparent;
+}
+.wide-scroll__track.is-dragging { cursor: grabbing; scroll-behavior: auto; user-select: none; }
+.wide-scroll__track::-webkit-scrollbar { height: 8px; }
+.wide-scroll__track::-webkit-scrollbar-thumb { background: var(--ink-3); border-radius: 999px; }
+.wide-scroll__track::-webkit-scrollbar-track { background: transparent; }
+.wide-scroll__track img { height: 420px; width: auto; max-width: none; display: block; flex: none; }
+.wide-scroll__expand {
+  position: absolute; top: var(--s3); right: var(--s3); z-index: 2;
+  width: 32px; height: 32px; padding: 8px; border-radius: 999px; border: none;
+  background: rgba(17,17,17,0.55); color: #fff; font-size: 15px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; backdrop-filter: blur(4px); transition: background .15s ease;
+}
+.wide-scroll__expand:hover { background: rgba(17,17,17,0.75); }
+
+/* лайтбокс: полноэкранный просмотр той же ленты */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(10,10,10,0.94);
+  display: none; align-items: center; justify-content: center;
+  padding: var(--s7) var(--s6);
+}
+.lightbox.is-open { display: flex; }
+.lightbox__scroll {
+  max-width: 100%; height: min(84vh, 880px); overflow-x: auto; overflow-y: hidden;
+  display: flex; cursor: grab; border-radius: var(--radius-sm);
+  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.4) transparent;
+}
+.lightbox__scroll.is-dragging { cursor: grabbing; user-select: none; }
+.lightbox__scroll::-webkit-scrollbar { height: 8px; }
+.lightbox__scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 999px; }
+.lightbox__scroll::-webkit-scrollbar-track { background: transparent; }
+.lightbox__scroll img { height: min(84vh, 880px); width: auto; max-width: none; display: block; flex: none; }
+#lightbox-repair .lightbox__scroll img { background: var(--stage); }
+#lightbox-registration .lightbox__scroll img { background: var(--stage); }
+#lightbox-monitoring-bikes .lightbox__scroll img { background: var(--stage); }
+#lightbox-monitoring-requests .lightbox__scroll img { background: var(--stage); }
+.lightbox__ph { flex: none; width: 4200px; height: min(84vh, 880px); }
+
+/* лайтбокс для одной картинки (не для раскадровок-лент) — вписываем целиком в экран, без обрезки и скролла */
+.lightbox--photo .lightbox__scroll {
+  max-width: 100%; height: auto; overflow: visible; cursor: default; display: block;
+}
+.lightbox--photo .lightbox__scroll img {
+  height: auto; width: auto; max-width: 100%; max-height: min(84vh, 880px); background: var(--stage);
+}
+.lightbox__close {
+  position: fixed; top: var(--s5); right: var(--s5); z-index: 201;
+  width: 44px; height: 44px; border-radius: 999px; border: none;
+  background: rgba(255,255,255,0.12); color: #fff; font-size: 22px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background .15s ease;
+}
+.lightbox__close:hover { background: rgba(255,255,255,0.22); }
+
+
+/* предыдущий/следующий */
+.case-pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); margin-top: 56px; border-top: 1px solid var(--border); padding-top: var(--s6); }
+/* переход к соседнему кейсу: мини-обложка + название, как кликабельные карточки кейсов на главной (не серая плашка — серые у нас информационные) */
+.pager-link { display: flex; align-items: center; gap: var(--s4); }
+.pager-link.next { justify-content: flex-end; text-align: right; }
+.pager-link__cover { flex: none; width: 128px; aspect-ratio: 4 / 3; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); transition: transform .2s ease; }
+.pager-link__cover img { width: 100%; height: 100%; object-fit: cover; }
+.pager-link:hover .pager-link__cover { transform: translateY(-4px); } /* как у карточек на главной */
+.pager-link__k { font-size: var(--fs-meta); line-height: 16px; color: var(--ink-3); margin-bottom: var(--s2); }
+.pager-link__t { font-size: var(--fs-h3); font-weight: 600; line-height: 24px; letter-spacing: 0; }
+
+/* ======================= адаптив (черновой) ======================= */
+@media (max-width: 1024px) {
+  .cblock, .case-hero { gap: var(--s6); }
+}
+
+@media (max-width: 900px) {
+  .page { padding-left: var(--s5); padding-right: var(--s5); }
+  .header__inner { padding: 0 var(--s5); }
+  .hero { grid-template-columns: 1fr; gap: var(--s6); min-height: auto; }
+  .hero__photo { max-width: 320px; }
+  .cases__grid { grid-template-columns: 1fr; gap: var(--s6); }
+  .experience { grid-template-columns: minmax(0, 1fr); }
+  .experience > h2 { position: static; margin: 0 0 var(--s6); }
+  .exp-items { grid-column: 1; }
+  .cblock, .case-hero { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+  .cblock__title { position: static; }
+  .cblock__content { min-height: 0; } /* на мобильном список разделов скрыт, запас не нужен */
+  .section-jump { display: none; }
+  .split, .metrics--2 { grid-template-columns: 1fr; }
+  .metrics, .numbered-grid, .user-groups { grid-template-columns: repeat(2, 1fr); }
+  /* доска артефактов на мобильном — не в один столбец, а в 2 колонки; порядок карточек — 01+03 в одном ряду (оба вертикальных фото), 02+04 и 05+06 ниже (горизонтальные), чтобы в паре не встречались высокое и низкое фото */
+  .artifact-board { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: var(--s6); }
+  .artifact-col { display: contents; }
+  .artifact-board .artifact:has([data-lightbox-open="lightbox-artifact-01"]) { order: 1; }
+  .artifact-board .artifact:has([data-lightbox-open="lightbox-artifact-03"]) { order: 2; }
+  .artifact-board .artifact:has([data-lightbox-open="lightbox-artifact-02"]) { order: 3; }
+  .artifact-board .artifact:has([data-lightbox-open="lightbox-artifact-04"]) { order: 4; }
+  .artifact-board .artifact:has([data-lightbox-open="lightbox-artifact-05"]) { order: 5; }
+  .artifact-board .artifact:has([data-lightbox-open="lightbox-artifact-06"]) { order: 6; }
+  .process-scene { flex-direction: column; align-items: center; }
+  .process-scene .photo-stack-block { margin: var(--s6) 0 0; }
+  .split__col + .split__col { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: var(--s5); }
+  .contact__title { font-size: var(--fs-h1); line-height: 36px; } /* 28: заголовок с гифкой справа помещается в ширину телефона, страница не ездит вбок */
+  .hero__title { font-size: 2.75rem; line-height: 48px; } /* на телефоне как раньше: 48 в узкую колонку не влезает красиво */
+  .case-banner__title { font-size: var(--fs-h1); line-height: 36px; } /* как заголовок кейса на узком экране */
+  .case-hero__title { font-size: var(--fs-h1); line-height: 36px; }
+
+  /* переписки и другие пары «текст + скрин» — картинка под текстом, крупнее, по центру; та же ширина у стопки фото мастерской, раз она тоже переносится вниз */
+  .proof-row { flex-direction: column; }
+  .proof-row__image { width: 300px; margin: 0 auto; }
+  .photo-stack__frames { width: 300px; }
+
+  /* раскадровки в «Решении» — та же рамка 16:9, что у иллюстрации с мастером; то, что не влезает, доступно скроллом внутри рамки */
+  .wide-scroll__track { height: calc((100vw - var(--s5) * 2) * 0.5625); aspect-ratio: auto; }
+  .wide-scroll__track img { height: 100%; width: auto; max-width: none; }
+
+  /* ниже 900px зум по ховеру выключаем — на сжатом десктопном окне он не к месту, а на телефоне и так не сработает */
+  .artifact--h:hover .artifact__frame,
+  .artifact--v:hover .artifact__frame,
+  .photo-stack__frame.is-active.is-hover-zoom { transform: none; }
+}
+
+@media (max-width: 600px) {
+  /* на тач-экране ховера нет, поэтому «разделы» прячем — на телефоне для этого нужен другой интерфейс, пока не сделан */
+  .section-nav-trigger { display: none; }
+
+  /* гамбургер-меню в шапке — список ссылок в строке до 600px помещается, ниже уже нет, поэтому прячем его в выпадающую панель */
+  .nav-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; margin: -6px; padding: 6px;
+    background: none; border: none; color: var(--ink); cursor: pointer;
+  }
+  .nav-toggle__icon-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__icon-open { display: none; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__icon-close { display: block; }
+
+  .nav { display: none; }
+
+  /* пункты меню без своего фона: под ними вытягивается стекло шапки (высоту меню --menu-h считает script.js) */
+  .nav-mobile {
+    display: flex;
+    position: fixed; top: var(--header-h); left: 0; right: 0; z-index: 101; /* над стеклом шапки, иначе пункты размылись бы */
+    flex-direction: column; align-items: flex-start; gap: var(--s4);
+    padding: var(--s4) var(--s5); /* 16 сверху и снизу, по бокам 24 — вровень с шапкой */
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+  .nav-mobile.is-open {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .nav-mobile a { width: 100%; font-size: var(--fs-body); }
+  .header:has(.nav-toggle[aria-expanded="true"])::before {
+    height: calc(var(--header-h) + var(--menu-h, 0px));
+    border-bottom-color: var(--border); /* у открытого меню линия снизу остаётся: панель лежит поверх текста */
+  }
+
+  .metrics, .numbered-grid, .user-groups { grid-template-columns: 1fr; }
+  .figure-pair { grid-template-columns: 1fr; }
+  /* переходы между кейсами: в узкой колонке обложка над текстом, как мини-карточка */
+  .pager-link { flex-direction: column; align-items: flex-start; gap: var(--s3); }
+  .pager-link.next { align-items: flex-end; }
+  .pager-link.next .pager-link__cover { order: -1; }
+  .pager-link__cover { width: 100%; }
+  .case-banner { padding: var(--s5); }
+  .case-banner__actions { flex-direction: column; } /* кнопки во всю ширину, одинаковые */
+  .case-banner__actions .btn { justify-content: center; }
+  .exp-item__head { align-items: flex-start; }
+  .exp-row > summary { padding: var(--s4); }
+  .bullets.exp-item__bullets { padding: 0 var(--s4) var(--s4) calc(var(--s4) + 16px); } /* на телефоне текст во всю ширину, точки у края плашки */
+}
+
+/* табы «Карта / Список» поверх ленты раскадровки: сидят в левом верхнем углу рамки и не уезжают при скролле; зеркально кнопке-лупе справа */
+.scenario-tabs {
+  position: absolute; top: var(--s3); left: var(--s3); z-index: 2;
+  display: flex; gap: 2px; padding: 2px; height: 32px; /* та же высота, что у кнопки-лупы справа — стоят на одной линии */
+  background: var(--surface); border-radius: 999px; /* цвет карточек: с цветом линий табы выглядели темновато на сером фоне */
+  box-shadow: 0 2px 8px rgba(17,17,17,0.12); /* отделяет табы от светлой обводки экранов под ними */
+}
+.scenario-tabs__tab {
+  border: none; background: none; cursor: pointer;
+  height: 28px; padding: 0 10px; border-radius: 999px; /* 10 + 2 от подложки = 12 до текста, в сетке 4 */
+  font-size: var(--fs-sm); line-height: 20px; color: var(--ink-2);
+  transition: color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.scenario-tabs__tab:hover { color: var(--ink); }
+.scenario-tabs__tab.is-active {
+  background: #fff; color: var(--ink);
+  box-shadow: 0 1px 3px rgba(17,17,17,0.12);
+}
+
+/* в ленте с табами видна только активная раскадровка */
+.wide-scroll__track[data-tab-panel]:not(.is-active) { display: none; }
+
+#lightbox-lofi .lightbox__scroll img { background: var(--stage); }
+#lightbox-map-table .lightbox__scroll img { background: var(--stage); }
+#lightbox-linking-map .lightbox__scroll img { background: var(--stage); }
+#lightbox-linking-list .lightbox__scroll img { background: var(--stage); }
+#lightbox-unlinking .lightbox__scroll img { background: var(--stage); }
+
+/* карусель из нескольких картинок в одной рамке: видна одна, листается стрелками под рамкой (стрелки и подпись — те же, что у стопки фото мастерской) */
+.figure-carousel { margin: var(--s6) 0 var(--s7); }
+.figure-carousel .figure { margin-top: 0; }
+.figure-carousel__slide:not(.is-active) { display: none; }
+
+/* стрелки карусели в лайтбоксе: по бокам экрана, в стиле крестика закрытия */
+.lightbox__nav {
+  position: fixed; top: 50%; z-index: 201; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 999px; border: none; padding: 0;
+  background: rgba(255,255,255,0.12); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background .15s ease;
+}
+.lightbox__nav:hover { background: rgba(255,255,255,0.22); }
+.lightbox__nav svg { width: 20px; height: 20px; display: block; }
+.lightbox__nav--prev { left: var(--s5); }
+.lightbox__nav--next { right: var(--s5); }
+.lightbox__nav--prev svg { margin-right: 2px; } /* оптическая центровка шеврона, как у стрелок стопки фото */
+.lightbox__nav--next svg { transform: scaleX(-1); margin-left: 2px; }
+.lightbox:has(.lightbox__nav) { padding-left: 88px; padding-right: 88px; } /* место под стрелки, чтобы они не наезжали на картинку */
+
+/* ======================= компоненты кейса «Связи дарксторов» ======================= */
+
+/* карточки по три в ряд (существующая numbered-card) */
+.numbered-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* карточки с цифрами и таблица под ними: тот же зазор 16 px, что между карточками, читаются одним блоком */
+.metrics:has(+ .figure) { margin-bottom: var(--s4); }
+.metrics + .figure { margin-top: var(--s4); }
+
+/* кропы с набросков: по клику открывается вся доска, нужная метка подсвечена */
+.sketch-crops { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); margin: var(--s3) 0 var(--s6); }
+.sketch-crop { position: relative; aspect-ratio: 3 / 2; border-radius: var(--radius); overflow: hidden; background: var(--stage); cursor: pointer; }
+.sketch-crop img { width: 100%; height: 100%; object-fit: cover; }
+.sketch-mark {
+  position: absolute; transform: translate(-50%, -50%);
+  width: var(--s5); height: var(--s5); border-radius: 999px;
+  background: rgba(17,17,17,0.55); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-meta); line-height: 16px; font-weight: 600; pointer-events: none;
+  transition: opacity .15s ease;
+}
+.lightbox .sketch-mark { opacity: .4; }
+.lightbox .sketch-mark.is-target { opacity: 1; }
+/* доска набросков в лайтбоксе: курсор-лупа, клик увеличивает в 2 раза */
+#lightbox-lofi .lightbox__scroll { cursor: zoom-in; }
+#lightbox-lofi.is-zoomed .lightbox__scroll { cursor: zoom-out; overflow: auto; }
+#lightbox-lofi .lightbox__scroll.is-dragging { cursor: grabbing; }
+#lightbox-lofi.is-zoomed .lightbox__scroll img { height: calc(min(84vh, 880px) * 2); }
+#lightbox-lofi .strip { align-self: flex-start; }
+
+/* подпись под конкретным кадром ленты: позиция в процентах от ширины ленты, едет вместе со скроллом */
+.strip { position: relative; flex: none; }
+.strip-cap { position: absolute; transform: translateX(-50%); width: 13%; text-align: center; font-size: var(--fs-meta); line-height: 16px; color: var(--ink-2); }
+.lightbox .strip-cap { font-size: var(--fs-sm); line-height: 20px; }
+
+/* таблица в рамке */
+.figure .table-wrap { margin: 0; }
+.table-frame { border: 1px solid var(--border); border-radius: var(--radius); padding: var(--s1) var(--s2); }
+.table-frame .tbl tr:last-child td { border-bottom: none; }
+
+/* таблица находок: «что заметили / что сделала», бейдж над решением */
+.tbl--findings td { width: 50%; vertical-align: top; }
+.tbl--findings td:first-child { padding-top: calc(var(--s3) + var(--s5)); } /* текст на одной линии с текстом под бейджем */
+.chip { display: inline-block; margin-bottom: var(--s1); padding: 2px var(--s2) 4px; border-radius: 999px; font-size: var(--fs-meta); line-height: 14px; } /* высота та же 20; строчные буквы шрифт рисует ниже середины строки, поэтому сверху отступ на 2 px меньше, чем снизу — текст встаёт по центру */
+.chip--done { background: #bfe6ca; color: #17703a; }
+.chip--keep { background: var(--surface); color: var(--ink-2); }
+
+/* матрица гипотез (тепловая карта); зелёный и красный — единственные смысловые цвета */
+.heatmap { background: var(--surface); border-radius: var(--radius); padding: var(--s4) var(--s5) var(--s5); }
+.heatmap table { width: 100%; border-collapse: separate; border-spacing: 0 var(--s1); font-size: var(--fs-meta); line-height: 16px; }
+.heatmap th { font-weight: 400; color: var(--ink-3); padding: 0 var(--s2) var(--s1); text-align: center; }
+.heatmap th:first-child { text-align: left; padding-left: var(--s3); }
+.heatmap td { padding: var(--s1) var(--s2); vertical-align: middle; }
+.heatmap td.heatmap__l { padding-left: var(--s3); padding-right: var(--s4); color: var(--text); border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.heatmap td.heatmap__c { text-align: center; }
+.heatmap td.heatmap__s { text-align: right; padding-right: var(--s3); color: var(--ink-3); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; white-space: nowrap; }
+.heatmap tr.heatmap__group td { padding: var(--s3) var(--s2) 0 var(--s3); color: var(--ink-3); }
+.heatmap tbody tr.heatmap__group:first-child td { padding-top: 0; }
+.heatmap tr.is-hl td { background: #fff; }
+.heatmap tr.is-hl td.heatmap__l { color: var(--ink); font-weight: 600; }
+.heatmap tr.is-hl td.heatmap__s { color: #a82a14; font-weight: 600; }
+.heatmap__dot { display: inline-flex; width: 20px; height: 20px; border-radius: 999px; align-items: center; justify-content: center; font-size: var(--fs-meta); line-height: 16px; font-weight: 600; }
+.heatmap__dot--ok { background: #bfe6ca; color: #17703a; }
+.heatmap__dot--no { background: #f6c6bc; color: #a82a14; }
+.name-short { display: none; }
+
+@media (max-width: 900px) {
+  .wide-scroll__track .strip { height: 100%; }
+  .wide-scroll__track .strip-cap { display: none; } /* в узкой ленте подписи не помещаются, они видны в лайтбоксе */
+}
+@media (max-width: 600px) {
+  .numbered-grid--3, .sketch-crops { grid-template-columns: minmax(0, 1fr); }
+  .tbl--findings thead { display: none; }
+  .tbl--findings tr { display: grid; grid-template-columns: minmax(0, 1fr); border-bottom: 1px solid var(--border); padding: var(--s2) 0; }
+  table.tbl--findings td, table.tbl--findings td:first-child { width: auto; border-bottom: none; padding: var(--s1) 0; }
+  .tbl--findings tr:last-child { border-bottom: none; }
+  .heatmap { padding: var(--s3) var(--s2) var(--s4); }
+  .heatmap td, .heatmap th { padding-left: var(--s1); padding-right: var(--s1); }
+  .heatmap td.heatmap__l, .heatmap th:first-child { padding-left: var(--s2); }
+  .heatmap td.heatmap__s, .heatmap th:last-child { display: none; }
+  .heatmap tr.is-hl td.heatmap__c:last-of-type { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .name-full { display: none; }
+  .name-short { display: inline; }
+}
+
+
+/* ======================= «Учёт велопарка»: правки после аудита (перенесены из превью) ======================= */
+/* 1. Одна колонка уже с 1024 px (было с 900): на 901–1024 колонка заголовков 240 px сжимала контент до ~600 px */
+@media (max-width: 1024px) {
+  .cblock, .case-hero { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+  .cblock__title { position: static; }
+  .cblock__content { min-height: 0; }
+  .section-jump { display: none; }
+  .case-banner-row { grid-template-columns: minmax(0, 1fr); }
+  .case-banner-row > div:first-child { display: none; }
+}
+
+/* 2. Роли списком: эмодзи в кружке, как аватарки у цитат в «Процессе». Нет «сиротских» рядов ни на какой ширине; задача прижата к низу, обе карточки выровнены */
+.user-group { display: flex; flex-direction: column; }
+.user-group__roles--list { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
+.user-group__roles--list li { flex-direction: row; text-align: left; gap: var(--s3); }
+.user-group__roles--list .role-label { font-size: var(--fs-sm); line-height: 20px; }
+.user-group__task { margin-top: auto; }
+/* отступы от заголовка до списка и от списка до разделителя: 16 вместо 24 */
+.user-group:has(.user-group__roles--list) .user-group__title { margin-bottom: var(--s4); }
+.user-group__roles--list { margin-bottom: var(--s4); }
+
+/* 3. Главная метрика плиткой 2×2: 1 большая + 2 справа + 3 снизу, сетка заполнена без дыр */
+.metric--lead { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; }
+/* 40 px вместо 48. Трекинг по той же шкале, что уже есть на сайте: 32 и 44 px → −0.02em, 48 px → −0.03em */
+.metric--lead .metric__num { font-size: 2.5rem; line-height: 44px; letter-spacing: -0.02em; }
+.metric--lead .metric__note { margin-top: auto; }
+@media (max-width: 900px) {
+  .metric--lead { grid-row: auto; }
+  .metrics--bento .metric:last-child { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .metric--lead, .metrics--bento .metric:last-child { grid-column: auto; }
+  .metric--lead .metric__num { font-size: var(--fs-h1); line-height: 36px; }
+}
+
+/* 4. Зум по ховеру с задержкой 150 мс: не срабатывает, когда курсор просто проезжает мимо при скролле */
+.artifact--h:hover .artifact__frame,
+.artifact--v:hover .artifact__frame,
+.photo-stack__frame.is-active.is-hover-zoom { transition-delay: .15s; }
+
+/* 5. Стопка фото открывается в лайтбокс по клику */
+.photo-stack__frame.is-active { cursor: pointer; }
+
+/* 7. Заголовок над рядом «текст + картинка»: картинка встаёт вровень с первой строкой текста, а не с заголовком */
+.cblock__content h3 + .proof-row { margin-top: 0; }
+
+/* 8. Эмодзи картинкой внутри строки (😅 в пузыре) */
+.emoji-inline { display: inline-block; width: 1.15em; height: 1.15em; vertical-align: -0.2em; }
+
+/* 6. Доска артефактов на телефоне: рамка остаётся (она и делает доску доской), поля 16 px вместо 24/32 */
+@media (max-width: 600px) {
+  .artifact-board-frame { padding: var(--s4); }
+}
+
+/* ======================= ГЛАВНАЯ: первый экран, «обо мне», подвал, картинки за курсором (перенесено из превью 19.10) ======================= */
+/* герой без большого фото: аватарка, заголовок, лид в одну колонку; кейсы сразу под ним */
+.hero--compact { display: block; min-height: 0; }
+.hero__avatar { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 1px solid var(--border); margin-bottom: var(--s5); }
+.hero__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.hero--compact .hero__lead { max-width: calc((100% - 2 * var(--s5)) / 3 * 2 + var(--s5)); } /* ширина колонок 1–2 сетки кейсов: правый край лида совпадает с краем второй карточки */
+.hero--compact + .cases { margin-top: var(--s9); padding-top: 0; }
+
+/* обо мне — по сетке «Опыта» */
+.about { margin-top: calc(var(--s9) + var(--s6)); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--s5); align-items: start; }
+.about > h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.01em; line-height: 32px; text-transform: lowercase; }
+.about__body { grid-column: 2 / span 2; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--s5); align-items: stretch; }
+.about__photo { border-radius: var(--radius); background: var(--surface); overflow: hidden; } /* высота = высоте текста рядом: фото и текст всегда кончаются на одной линии, фото кадрируется под рамку */
+.about__photo img { width: 100%; height: 100%; object-fit: cover; }
+.about__text { display: flex; flex-direction: column; gap: var(--s4); }
+
+/* подвал: тонкая линия, как между компаниями в опыте; мелкий серый текст. Ссылки не дублируем — они в закреплённой шапке */
+.footer {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s2) var(--s5);
+  height: 64px; border-top: 1px solid var(--border); /* подвал фиксированной высоты — им страница и заканчивается, ниже скролла нет */
+  font-size: var(--fs-sm); line-height: 20px; color: var(--ink-3); text-transform: lowercase; /* строчными, как имя в шапке */
+}
+.page:has(> .footer) { padding-bottom: 0; }
+@media (max-width: 600px) { .footer { height: auto; padding: var(--s4) 0; } } /* на телефоне две строки */
+
+
+/* ссылка last.fm и слова с картинкой: подчёркивание; у слов с картинкой пунктир — это не ссылка, а подсказка */
+.about__link, .hover-word { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--ink-3); transition: text-decoration-color .15s ease; }
+.about__link:hover, .hover-word:hover { text-decoration-color: var(--ink); }
+.hover-word { text-decoration-style: dotted; cursor: default; outline: none; white-space: nowrap; } /* слово не переносится: картинки листаются по его длине */
+.hover-word:focus-visible { border-radius: 4px; box-shadow: 0 0 0 2px var(--ink); }
+@media (hover: none) { .hover-word { cursor: pointer; } }
+
+/* карточка с картинкой: едет за курсором (на телефоне — появляется под словом по тапу) */
+/* сама карточка прозрачная, тень и скругление у картинки: круглые аватарки и наклейки висят без рамки, прямоугольные — со скруглением 16 */
+.cursor-pop {
+  position: fixed; left: 0; top: 0; z-index: 200;
+  pointer-events: none; opacity: 0;
+  transition: opacity .2s ease; /* простое растворение, без сдвига и масштаба */
+}
+.cursor-pop.is-visible { opacity: 1; }
+.cursor-pop > * {
+  display: block; width: auto; height: auto;
+  max-width: var(--item-w, var(--pop-w, 240px)); max-height: var(--item-w, var(--pop-w, 240px)); /* длинная сторона — не больше размера карточки */
+  border-radius: var(--radius);
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.12)) drop-shadow(0 2px 4px rgba(0,0,0,.06)); /* тень повторяет форму: у круглых — круглая */
+}
+.cursor-pop > [hidden] { display: none; }
+
+@media (max-width: 900px) {
+  .about { grid-template-columns: minmax(0, 1fr); }
+  .about > h2 { margin: 0 0 var(--s6); }
+  .about__body { grid-column: 1; grid-template-columns: minmax(0, 1fr); }
+  .about__photo { width: 100%; max-width: 480px; aspect-ratio: 1; } /* на телефоне — квадрат во всю ширину (на планшете не больше 480) */
+  .hero--compact .hero__lead { max-width: 60ch; } /* на десктопе лид шириной в две карточки кейсов; на узком экране это давало колонку в 2/3 ширины — теперь во всю ширину (на планшете не длиннее ~60 знаков) */
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Связи дарксторов — София Баранова</title>
+  <meta name="description" content="Как связать соседние склады, чтобы возить non-food из двух точек: карта связей и сценарии для внутреннего B2E-инструмента Самоката.">
+
+  <!-- превью ссылки в мессенджерах и соцсетях (Телеграм, ВК, HH): картинка 1200×630 лежит в images/og/ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="София Баранова">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://sofia-baranova.github.io/case-svyazi.html">
+  <meta property="og:title" content="Связи дарксторов — София Баранова">
+  <meta property="og:description" content="Как связать соседние склады, чтобы возить non-food из двух точек: карта связей и сценарии для внутреннего B2E-инструмента Самоката.">
+  <meta property="og:image" content="https://sofia-baranova.github.io/images/og/og-svyazi.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="index.html">София Баранова</a>
+      <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false">
+        <svg class="nav-toggle__icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+        <svg class="nav-toggle__icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <nav class="nav">
+        <a href="index.html#cases">кейсы</a>
+        <a href="index.html#experience">опыт</a>
+        <a href="https://t.me/thecurehead" target="_blank" rel="noopener">telegram</a>
+        <a href="#" class="js-copy-email" data-email="sofiabaranova97@gmail.com">e-mail</a>
+        <a href="https://drive.google.com/file/d/1ztFR7P-ESMwh4hIgdmYGF1b9-vSlQf4D/view?usp=sharing" target="_blank" rel="noopener">cv</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile">
+    <a href="index.html#cases">кейсы</a>
+    <a href="index.html#experience">опыт</a>
+    <a href="https://t.me/thecurehead" target="_blank" rel="noopener">telegram</a>
+    <a href="#" class="js-copy-email" data-email="sofiabaranova97@gmail.com">e-mail</a>
+    <a href="https://drive.google.com/file/d/1ztFR7P-ESMwh4hIgdmYGF1b9-vSlQf4D/view?usp=sharing" target="_blank" rel="noopener">cv</a>
+  </nav>
+
+  <main class="page">
+    <article class="case">
+
+      <!-- ШАПКА КЕЙСА -->
+      <header class="case-hero">
+        <div class="case-hero__side">
+          <div class="case-hero__logo"><img src="images/logo-sam.png" alt="SAM"></div>
+          <div class="case-hero__company"><span class="keep-case">SAM</span></div>
+          <div class="case-hero__meta"><span class="keep-case">B2E</span> · web · в&nbsp;проде<br>единственный дизайнер · 2025</div>
+        </div>
+        <div class="case-hero__main">
+          <h1 class="case-hero__title">Связи дарксторов: как связать соседние склады, чтобы возить товары из&nbsp;двух точек</h1>
+          <p class="case-hero__lead">Внутренний B2E-инструмент Самоката для логистики. Спроектировала раздел, где операционный отдел сам связывает склады на&nbsp;карте и&nbsp;в&nbsp;таблице, без заявок в&nbsp;поддержку. По&nbsp;итогам UX-теста добавила создание связей из&nbsp;таблицы.</p>
+          <div class="case-hero__cover">
+            <img src="images/cover-svyazi-hero.webp" alt="Карта связей дарксторов с карточкой фидера и связанными сателлитами" width="1920" height="1080">
+          </div>
+        </div>
+      </header>
+
+
+      <!-- КОНТЕКСТ -->
+      <section class="cblock" id="context">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before"></nav>
+          <span class="cblock__title-text">Контекст</span>
+          <nav class="section-jump section-jump--after" style="--jn: 4">
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Продукт управления логистической сетью SAM (Service Area Management)&nbsp;— внутренний веб-инструмент Самоката: сеть дарксторов, их&nbsp;зоны обслуживания на&nbsp;карте и&nbsp;связи между складами. Дарксторы в&nbsp;Самокате называют ЦФЗ, центрами формирования заказов. Фичу «Связи дарксторов» я&nbsp;проектировала под новое направление: доставку одного заказа сразу с&nbsp;двух складов.</p>
+          <p>У&nbsp;Самоката есть непродуктовые товары (non-food): бытовая химия, товары для дома, красота. Такие товары раньше можно было заказать только в&nbsp;зоне того даркстора, где они лежат. В&nbsp;новой схеме non-food хранит один даркстор в&nbsp;группе, это фидер. Соседние дарксторы становятся его сателлитами, курьер привозит им&nbsp;non-food от&nbsp;фидера, и&nbsp;клиенты сателлитов тоже могут его заказать.</p>
+
+          <figure class="figure">
+            <div class="figure__box figure__box--illustration" style="aspect-ratio: 3/2; padding: 0; background: var(--surface);" data-lightbox-open="lightbox-delivery-scheme">
+              <img src="images/delivery-scheme.webp" alt="Схема доставки non-food с двух складов: даркстор-фидер передаёт товары даркстору-сателлиту">
+              <button class="wide-scroll__expand" data-lightbox-open="lightbox-delivery-scheme" aria-label="Открыть на весь экран"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg></button>
+            </div>
+            <figcaption>схема доставки non-food</figcaption>
+          </figure>
+
+        </div>
+      </section>
+
+      <!-- ПРОБЛЕМА -->
+      <section class="cblock" id="problem">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 1">
+            <a href="#context">Контекст</a>
+          </nav>
+          <span class="cblock__title-text">Проблема</span>
+          <nav class="section-jump section-jump--after" style="--jn: 3">
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Чтобы схема работала, кто-то должен решать, какой даркстор чей фидер. Единого места для этого не&nbsp;было.</p>
+          <div class="numbered-grid numbered-grid--3">
+            <div class="numbered-card">
+              <div class="numbered-card__title">Данные в&nbsp;разных местах</div>
+              <div class="numbered-card__desc">Связи хранились разрозненно и&nbsp;устаревали</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Правки через поддержку</div>
+              <div class="numbered-card__desc">Чтобы поменять связь, писали в&nbsp;поддержку</div>
+            </div>
+            <div class="numbered-card">
+              <div class="numbered-card__title">Неясно, кто ведёт связи</div>
+              <div class="numbered-card__desc">На&nbsp;старте задачи было неизвестно, кто будет заниматься связями</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРОЦЕСС -->
+      <section class="cblock" id="process">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 2">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+          </nav>
+          <span class="cblock__title-text">Процесс</span>
+          <nav class="section-jump section-jump--after" style="--jn: 2">
+            <a href="#solution">Решение</a>
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <p>На&nbsp;входе было только общее описание фичи с&nbsp;бизнес-логикой «фидер → сателлиты». Пользователей раздела ещё не&nbsp;определили, а&nbsp;на&nbsp;дизайн первой итерации было две недели.</p>
+
+          <h3>Фидер назначается самой привязкой</h3>
+          <p>Связывать на&nbsp;карте мы&nbsp;с&nbsp;продуктовой командой придумали на&nbsp;дискавери. Я&nbsp;сделала lo-fi-наброски и&nbsp;продумала логику. Пользователь находит фидер и&nbsp;отмечает на&nbsp;карте соседние дарксторы, они становятся сателлитами. Отдельного шага «назначить фидер» я&nbsp;делать не&nbsp;стала. Даркстор становится фидером, когда к&nbsp;нему привязывают сателлиты.</p>
+
+          <div class="sketch-crops">
+            <figure>
+              <div class="sketch-crop" data-lightbox-open="lightbox-lofi" data-mark="1">
+                <img src="images/lofi-crop-start.webp" alt="Набросок: таблица связей и кнопка «Посмотреть на карте»" width="675" height="450" loading="lazy">
+                <span class="sketch-mark" style="left:62%; top:10.5%">1</span>
+              </div>
+              <figcaption class="artifact__caption">1. Старт с&nbsp;таблицы, на&nbsp;карту ведёт кнопка</figcaption>
+            </figure>
+            <figure>
+              <div class="sketch-crop" data-lightbox-open="lightbox-lofi" data-mark="2">
+                <img src="images/lofi-crop-map.webp" alt="Набросок: карта с попапом ЦФЗ и кнопками привязки" width="700" height="467" loading="lazy">
+                <span class="sketch-mark" style="left:71%; top:22%">2</span>
+              </div>
+              <figcaption class="artifact__caption">2. Попап привязки по&nbsp;клику на&nbsp;даркстор</figcaption>
+            </figure>
+            <figure>
+              <div class="sketch-crop" data-lightbox-open="lightbox-lofi" data-mark="3">
+                <img src="images/lofi-crop-questions.webp" alt="Набросок: открытые вопросы про редактирование и валидации" width="740" height="493" loading="lazy">
+                <span class="sketch-mark" style="left:29%; top:56%">3</span>
+              </div>
+              <figcaption class="artifact__caption">3. Открытые вопросы и&nbsp;валидации</figcaption>
+            </figure>
+          </div>
+
+          <h3>Сценарии прошли, вопросы возникли в&nbsp;двух местах</h3>
+          <p>Подготовила исследование: прототип, гипотезы, задания и&nbsp;бриф для UX-исследователя, который модерировал тест. Часть встреч я&nbsp;наблюдала сама, параллельно вела ещё одну фичу. Тест прошли пять сотрудников операционного управления: руководитель и&nbsp;его подчинённые.</p>
+          <p>О&nbsp;фиче знал только руководитель. Для части его сотрудников, прямых пользователей, тест стал открытием, что связями будут заниматься именно они. Проверяли, понятны&nbsp;ли карта и&nbsp;термины «фидер/сателлит» и&nbsp;проходят&nbsp;ли сценарии связывания, отвязывания и&nbsp;редактирования. Ключевые гипотезы подтвердились: респонденты проходили сценарии самостоятельно.</p>
+
+          <div class="metrics">
+            <div class="metric"><div class="metric__num">13</div><div class="metric__label">гипотез по&nbsp;четырём сценариям</div></div>
+            <div class="metric"><div class="metric__num">5</div><div class="metric__label">респондентов: руководитель и&nbsp;сотрудники</div></div>
+            <div class="metric"><div class="metric__num">2</div><div class="metric__label">места, где возникли вопросы</div></div>
+          </div>
+
+          <figure class="figure">
+            <div class="heatmap">
+              <table>
+                <thead><tr><th>Гипотеза</th><th><span class="name-full">Александр</span><span class="name-short">А</span></th><th><span class="name-full">Анастасия</span><span class="name-short">Ан</span></th><th><span class="name-full">Диана</span><span class="name-short">Д</span></th><th><span class="name-full">Мария</span><span class="name-short">М</span></th><th><span class="name-full">Екатерина</span><span class="name-short">Е</span></th><th></th></tr></thead>
+                <tbody>
+        <tr class="heatmap__group"><td colspan="7">Создание связи</td></tr>
+        <tr><td class="heatmap__l">Понимает термины «фидер» и&nbsp;«сателлит»</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">4/5</td></tr>
+        <tr class="is-hl"><td class="heatmap__l">Находит кнопку «Посмотреть на&nbsp;карте»</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__s">1/5</td></tr>
+        <tr class="is-hl"><td class="heatmap__l">Понимает, что зелёная точка означает даркстор без связи</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__s">1/5</td></tr>
+        <tr><td class="heatmap__l">Узнаёт пин фидера и&nbsp;его зону</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+        <tr><td class="heatmap__l">Начинает связывание кнопкой «Привязать сателлит»</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">4/5</td></tr>
+        <tr><td class="heatmap__l">Добавляет соседние дарксторы кликом по&nbsp;точкам</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+        <tr><td class="heatmap__l">Убирает даркстор из&nbsp;связи крестиком в&nbsp;чипсе</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+        <tr><td class="heatmap__l">Сохраняет связь</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+        <tr><td class="heatmap__l">Понимает, что связь создана и&nbsp;даркстор стал фидером</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+        <tr class="heatmap__group"><td colspan="7">Добавление сателлита</td></tr>
+        <tr><td class="heatmap__l">Добавляет ещё один сателлит</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">4/5</td></tr>
+        <tr class="heatmap__group"><td colspan="7">Отвязывание</td></tr>
+        <tr><td class="heatmap__l">Отвязывает сателлит кнопкой с&nbsp;иконкой</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--no">✕</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">4/5</td></tr>
+        <tr class="heatmap__group"><td colspan="7">Редактирование</td></tr>
+        <tr><td class="heatmap__l">Открывает редактирование через меню</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+        <tr><td class="heatmap__l">Меняет даркстор через селект</td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__c"><span class="heatmap__dot heatmap__dot--ok">✓</span></td><td class="heatmap__s">5/5</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption>матрица гипотез</figcaption>
+          </figure>
+
+          <p class="lead-gap-lg">Две находки теста я&nbsp;доработала, три оставила как есть.</p>
+
+          <figure class="figure">
+            <div class="table-wrap table-frame">
+              <table class="tbl tbl--findings">
+                <thead><tr><th>Что заметили на&nbsp;тесте</th><th>Что сделала</th></tr></thead>
+                <tbody>
+                  <tr><td>Респонденты искали дарксторы через поиск и&nbsp;предложили привязывать сателлиты по&nbsp;названию.</td><td><span class="chip chip--done">доработала</span><br>Добавила создание связи из&nbsp;таблицы с&nbsp;поиском по&nbsp;названию.</td></tr>
+                  <tr><td>Одной респондентке кнопки «Привязать» и&nbsp;«Отвязать» показались похожими.</td><td><span class="chip chip--done">доработала</span><br>Добавила тултип «Отвязать». Иконку оставила: кнопку отвязки нашли 4&nbsp;из&nbsp;5&nbsp;респондентов.</td></tr>
+                  <tr><td>4&nbsp;из&nbsp;5&nbsp;не&nbsp;сразу нашли кнопку «Посмотреть на&nbsp;карте» и&nbsp;не&nbsp;поняли, что зелёная точка означает даркстор без связи.</td><td><span class="chip chip--keep">оставила</span><br>Все респонденты видели SAM впервые. Кнопку достаточно найти один раз, а&nbsp;смысл зелёной точки объясняет легенда.</td></tr>
+                  <tr><td>Респондентка начала привязку нового даркстора с&nbsp;его собственной карточки и&nbsp;заметила, что так можно по&nbsp;ошибке сделать его фидером.</td><td><span class="chip chip--keep">оставила</span><br>4&nbsp;из&nbsp;5&nbsp;сразу пошли через карточку фидера, а&nbsp;в&nbsp;режиме связывания панель показывает, какой даркстор станет фидером, ещё до&nbsp;подтверждения.</td></tr>
+                  <tr><td>Респондентка опасалась, что если её&nbsp;отвлекут во&nbsp;время редактирования, часть изменений сохранится, а&nbsp;часть нет.</td><td><span class="chip chip--keep">оставила</span><br>Изменения применяются только по&nbsp;кнопке «Сохранить», поэтому частично связь сохраниться не&nbsp;может.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </figure>
+
+          <h3>Один паттерн на&nbsp;создание и&nbsp;редактирование</h3>
+          <p>Создание связи из&nbsp;таблицы я&nbsp;перенесла во&nbsp;вторую итерацию, в&nbsp;первую у&nbsp;разработки не&nbsp;было ресурса. Для создания взяла тот&nbsp;же паттерн, что в&nbsp;редактировании. Он&nbsp;уже был в&nbsp;разделе и&nbsp;понятен по&nbsp;аналогии, а&nbsp;разработке не&nbsp;пришлось делать ничего нового.</p>
+        </div>
+      </section>
+
+      <!-- РЕШЕНИЕ -->
+      <section class="cblock" id="solution">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 3">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+          </nav>
+          <span class="cblock__title-text">Решение</span>
+          <nav class="section-jump section-jump--after" style="--jn: 1">
+            <a href="#result">Результат</a>
+          </nav>
+        </h2>
+        <div class="cblock__content">
+          <h3>Сначала таблица, карта по&nbsp;кнопке</h3>
+          <p>Таблица и&nbsp;карта показывают одни и&nbsp;те&nbsp;же&nbsp;связи. Раздел открывается таблицей: в&nbsp;ней удобнее работать с&nbsp;большим списком дарксторов. Карта открывается по&nbsp;кнопке и&nbsp;показывает, где находятся дарксторы. Найти, отфильтровать и&nbsp;отредактировать связь можно и&nbsp;в&nbsp;таблице, и&nbsp;на&nbsp;карте.</p>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-map-table">
+              <img src="images/map-table-scenario.webp" alt="Раскадровка: таблица связей ЦФЗ, переход на карту связей с открытым попапом фидера и легендой" loading="lazy">
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-map-table" aria-label="Открыть на весь экран">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+            </button>
+          </div>
+
+          <h3>При связывании на&nbsp;карте остаются только свободные дарксторы</h3>
+          <p>Связь можно создать на&nbsp;карте или из&nbsp;таблицы, через тот&nbsp;же селект, что в&nbsp;редактировании. В&nbsp;режиме связывания я&nbsp;убрала с&nbsp;карты пины уже связанных дарксторов, чтобы они не&nbsp;отвлекали и&nbsp;на&nbsp;них не&nbsp;хотелось нажать. Какой даркстор станет фидером, панель показывает ещё до&nbsp;подтверждения.</p>
+          <div class="wide-scroll">
+            <div class="scenario-tabs" role="tablist">
+              <button class="scenario-tabs__tab is-active" type="button" role="tab" aria-selected="true" data-tab="linking-map">Карта</button>
+              <button class="scenario-tabs__tab" type="button" role="tab" aria-selected="false" data-tab="linking-list">Таблица</button>
+            </div>
+            <div class="wide-scroll__track is-active" data-tab-panel="linking-map" data-lightbox-open="lightbox-linking-map">
+              <div class="strip">
+                <img src="images/linking-map.webp" alt="Раскадровка связывания на карте: выбор фидера, выбор соседних дарксторов, подтверждение связи" loading="lazy">
+                <span class="strip-cap" style="left:35.89%; top:91.5%">пины уже связанных дарксторов скрыты</span>
+              </div>
+            </div>
+            <div class="wide-scroll__track" data-tab-panel="linking-list" data-lightbox-open="lightbox-linking-list">
+              <div class="strip">
+                <img src="images/linking-list.webp" alt="Раскадровка связывания из таблицы: выбор фидера и сателлитов через поиск по названию" loading="lazy">
+                <span class="strip-cap" style="left:37.76%; top:92%">выбрали фидер, затем выбираем его сателлиты</span>
+              </div>
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-linking-map" aria-label="Открыть на весь экран">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+            </button>
+          </div>
+
+          <h3>Перед отвязкой видно, что произойдёт</h3>
+          <p>Текст окна подтверждения я&nbsp;написала через результат действия: из&nbsp;какого фидера в&nbsp;какой сателлит перестанут возить non-food. Отвязать сателлит можно из&nbsp;карточки фидера или из&nbsp;карточки самого сателлита. Если отвязать последний сателлит, группа распадается. Ниже первый сценарий.</p>
+          <div class="wide-scroll">
+            <div class="wide-scroll__track" data-lightbox-open="lightbox-unlinking">
+              <img src="images/unlinking-scenario.webp" alt="Раскадровка отвязывания сателлита у фидера" loading="lazy">
+            </div>
+            <button class="wide-scroll__expand" data-lightbox-open="lightbox-unlinking" aria-label="Открыть на весь экран">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.79,12.79,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.8-5.79a1,1,0,0,0-1.42-1.42ZM21.92,2.62a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.8,5.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- РЕЗУЛЬТАТ -->
+      <section class="cblock" id="result">
+        <h2 class="cblock__title">
+          <nav class="section-jump section-jump--before" style="--jn: 4">
+            <a href="#context">Контекст</a>
+            <a href="#problem">Проблема</a>
+            <a href="#process">Процесс</a>
+            <a href="#solution">Решение</a>
+          </nav>
+          <span class="cblock__title-text">Результат</span>
+          <nav class="section-jump section-jump--after"></nav>
+        </h2>
+        <div class="cblock__content">
+          <p>Фича вышла в&nbsp;прод.</p>
+          <ul class="bullets">
+            <li><span><b>Процесс.</b> Сотрудники операционного управления настраивают связи сами, без заявок в&nbsp;поддержку.</span></li>
+            <li><span><b>Данные.</b> Связи хранятся в&nbsp;одном месте, и&nbsp;смежные системы получают их&nbsp;из&nbsp;SAM.</span></li>
+            <li><span><b>Запрос из&nbsp;теста.</b> После того как появилось создание из&nbsp;таблицы, сотрудники говорили, что работать стало проще.</span></li>
+          </ul>
+          <h3>Что сделала&nbsp;бы иначе</h3>
+          <p>Сейчас я&nbsp;бы&nbsp;поменяла итерации местами: сначала выпустила создание связей в&nbsp;таблице, а&nbsp;карту добавила потом. Сотрудникам обычно приходит готовый список дарксторов, и&nbsp;в&nbsp;таблице его быстрее разнести, чем искать точки на&nbsp;карте.</p>
+        </div>
+      </section>
+
+
+
+      <!-- БАННЕР «СПАСИБО, ЧТО ДОЧИТАЛИ»: приглашение пообщаться, до переходов к другим кейсам -->
+      <div class="case-banner-row">
+        <div></div>
+        <aside class="case-banner">
+          <div class="case-banner__title">Спасибо, что <span class="nowrap">дочитали<span class="contact__sticker"><img alt="" data-sticker></span></span></div>
+          <p class="case-banner__text">Напишите, если хотите обсудить кейс: покажу макеты и&nbsp;расскажу о&nbsp;решениях подробнее</p>
+          <div class="case-banner__actions">
+            <a class="btn" href="https://t.me/thecurehead" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+            <a class="btn btn--ghost js-copy-email" href="#" data-email="sofiabaranova97@gmail.com">Скопировать e-mail</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ПРЕДЫДУЩИЙ / СЛЕДУЮЩИЙ -->
+      <nav class="case-pager">
+        <a class="pager-link prev" href="case-velosipedy.html">
+          <span class="pager-link__cover"><img src="images/cover-velo-card.webp" alt="" width="1600" height="1200" loading="lazy"></span><div class="pager-link__text"><div class="pager-link__k">Предыдущий кейс</div>
+          <div class="pager-link__t">Учёт велопарка</div></div>
+        </a>
+        <a class="pager-link next" href="case-zony.html">
+          <div class="pager-link__text"><div class="pager-link__k">Следующий кейс</div>
+          <div class="pager-link__t">Оптимизация зон</div></div><span class="pager-link__cover"><img src="images/cover-zony-card.webp" alt="" width="1600" height="1200" loading="lazy"></span>
+        </a>
+      </nav>
+
+    </article>
+
+    <!-- ЛАЙТБОКСЫ: вынесены из блоков в конец страницы -->
+    <div class="lightbox lightbox--photo" id="lightbox-delivery-scheme">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><img src="images/delivery-scheme.webp" alt="Схема доставки non-food с двух складов: даркстор-фидер передаёт товары даркстору-сателлиту" loading="lazy"></div>
+    </div>
+    <div class="lightbox" id="lightbox-lofi">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><div class="strip">
+        <img src="images/lofi-sketches.webp" alt="Доска с lo-fi-набросками сценариев связывания на карте и редактирования связи" loading="lazy">
+        <span class="sketch-mark" data-mark="1" style="left:20.45%; top:53.7%">1</span>
+        <span class="sketch-mark" data-mark="2" style="left:79.4%; top:25.6%">2</span>
+        <span class="sketch-mark" data-mark="3" style="left:34.5%; top:63.2%">3</span>
+      </div></div>
+    </div>
+    <div class="lightbox" id="lightbox-map-table">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><img src="images/map-table-scenario.webp" alt="Раскадровка: таблица связей ЦФЗ и карта связей" loading="lazy"></div>
+    </div>
+    <div class="lightbox" id="lightbox-linking-map">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><div class="strip">
+        <img src="images/linking-map.webp" alt="Раскадровка связывания на карте" loading="lazy">
+        <span class="strip-cap" style="left:35.89%; top:91.5%">пины уже связанных дарксторов скрыты</span>
+      </div></div>
+    </div>
+    <div class="lightbox" id="lightbox-linking-list">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><div class="strip">
+        <img src="images/linking-list.webp" alt="Раскадровка связывания из таблицы" loading="lazy">
+        <span class="strip-cap" style="left:37.76%; top:92%">выбрали фидер, затем выбираем его сателлиты</span>
+      </div></div>
+    </div>
+    <div class="lightbox" id="lightbox-unlinking">
+      <button class="lightbox__close" aria-label="Закрыть"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
+      <div class="lightbox__scroll"><img src="images/unlinking-scenario.webp" alt="Раскадровка отвязывания сателлита у фидера" loading="lazy"></div>
+    </div>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
