@@ -113,6 +113,7 @@ button { font: inherit; }
 
 /* --------------------------- шапка --------------------------- */
 .header {
+  --glass-ext: 120px;
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--header-h); z-index: 100;
   display: flex; align-items: center;
@@ -121,8 +122,11 @@ button { font: inherit; }
 /* стекло шапки — отдельный слой. Когда на телефоне открыто меню, этот же слой плавно вытягивается вниз под пункты:
    стекло одно, поэтому нет ни шва между шапкой и меню, ни мигания при открытии */
 .header::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: -1;
-  height: var(--header-h);
+  content: ""; position: absolute; left: 0; right: 0; z-index: -1;
+  /* стекло продлено вверх за край экрана: во встроенном браузере Телеграма над шапкой есть полоса под его кнопками,
+     и без этого в ней виден текст страницы. Высота самой шапки не меняется */
+  top: calc(-1 * var(--glass-ext));
+  height: calc(var(--header-h) + var(--glass-ext));
   background: var(--glass-bg);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
@@ -749,7 +753,7 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
   }
   .nav-mobile a { width: 100%; font-size: var(--fs-body); }
   .header:has(.nav-toggle[aria-expanded="true"])::before {
-    height: calc(var(--header-h) + var(--menu-h, 0px));
+    height: calc(var(--header-h) + var(--glass-ext) + var(--menu-h, 0px));
     border-bottom-color: var(--border); /* у открытого меню линия снизу остаётся: панель лежит поверх текста */
   }
 
