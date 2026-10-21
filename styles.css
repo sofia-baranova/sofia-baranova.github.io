@@ -113,7 +113,6 @@ button { font: inherit; }
 
 /* --------------------------- шапка --------------------------- */
 .header {
-  --glass-ext: 120px;
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--header-h); z-index: 100;
   display: flex; align-items: center;
@@ -122,11 +121,8 @@ button { font: inherit; }
 /* стекло шапки — отдельный слой. Когда на телефоне открыто меню, этот же слой плавно вытягивается вниз под пункты:
    стекло одно, поэтому нет ни шва между шапкой и меню, ни мигания при открытии */
 .header::before {
-  content: ""; position: absolute; left: 0; right: 0; z-index: -1;
-  /* стекло продлено вверх за край экрана: во встроенном браузере Телеграма над шапкой есть полоса под его кнопками,
-     и без этого в ней виден текст страницы. Высота самой шапки не меняется */
-  top: calc(-1 * var(--glass-ext));
-  height: calc(var(--header-h) + var(--glass-ext));
+  content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: -1;
+  height: var(--header-h);
   background: var(--glass-bg);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
@@ -753,7 +749,7 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
   }
   .nav-mobile a { width: 100%; font-size: var(--fs-body); }
   .header:has(.nav-toggle[aria-expanded="true"])::before {
-    height: calc(var(--header-h) + var(--glass-ext) + var(--menu-h, 0px));
+    height: calc(var(--header-h) + var(--menu-h, 0px));
     border-bottom-color: var(--border); /* у открытого меню линия снизу остаётся: панель лежит поверх текста */
   }
 
@@ -984,7 +980,12 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
   font-size: var(--fs-sm); line-height: 20px; color: var(--ink-3); text-transform: lowercase; /* строчными, как имя в шапке */
 }
 .page:has(> .footer) { padding-bottom: 0; }
-@media (max-width: 600px) { .footer { height: auto; padding: var(--s4) 0; } } /* на телефоне две строки */
+@media (max-width: 600px) {
+  /* на телефоне шрифт подвала уменьшается вместе с шириной экрана, чтобы обе подписи влезли в одну строку
+     (на iPhone обычного размера и больше). На совсем узких экранах шрифт не мельче 11 px, и подписи переносятся на две строки */
+  .footer { height: auto; padding: var(--s4) 0; column-gap: var(--s3); font-size: clamp(11px, 2.95vw, var(--fs-meta)); line-height: 16px; }
+  .footer span { white-space: nowrap; }
+}
 
 
 /* ссылка last.fm и слова с картинкой: подчёркивание; у слов с картинкой пунктир — это не ссылка, а подсказка */
