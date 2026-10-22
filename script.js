@@ -171,6 +171,9 @@ document.querySelectorAll('[data-lightbox-open]').forEach(function (btn) {
   btn.addEventListener('click', function () {
     var lightbox = document.getElementById(btn.getAttribute('data-lightbox-open'));
     if (!lightbox) return;
+    // на телефоне раскадровки не открываются на весь экран: лента и так листается в рамке на странице,
+    // а длинный лайтбокс на узком экране получался вертикальным окошком
+    if (btn.closest('.wide-scroll') && window.matchMedia('(max-width: 600px)').matches) return;
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   });

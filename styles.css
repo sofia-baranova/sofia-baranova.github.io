@@ -269,7 +269,7 @@ button { font: inherit; }
 /* баннер шириной с текст кейса: та же сетка, что у разделов (240 + 64 + колонка текста), левая ячейка пустая */
 .case-banner-row { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--s8); } /* от последнего абзаца «Результата» 48 — нижний отступ самого раздела */
 .case-banner { background: var(--stage); border-radius: var(--radius); padding: var(--s6); }
-.case-banner__title { font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 40px; letter-spacing: -0.02em; text-transform: lowercase; margin-bottom: var(--s3); text-wrap: balance; } /* как заголовок кейса в шапке */
+.case-banner__title { font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 40px; letter-spacing: -0.02em; text-transform: lowercase; margin-bottom: var(--s3); } /* как заголовок кейса в шапке */
 .case-banner__text { font-size: var(--fs-body); line-height: 24px; color: var(--text); max-width: 600px; margin-bottom: var(--s5); text-wrap: pretty; } /* как текст кейса */
 .case-banner__actions { display: flex; flex-wrap: wrap; gap: var(--s3); }
 .case-banner .contact__sticker { height: 1.15em; transform: translateY(0.125em); margin-left: var(--s3); } /* 12 px от последней буквы, как на главной */
@@ -700,8 +700,8 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
   .split__col + .split__col { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: var(--s5); }
   .contact__title { font-size: var(--fs-h1); line-height: 36px; } /* 28: заголовок с гифкой справа помещается в ширину телефона, страница не ездит вбок */
   .hero__title { font-size: 2.75rem; line-height: 48px; } /* на телефоне как раньше: 48 в узкую колонку не влезает красиво */
-  .case-banner__title { font-size: var(--fs-h1); line-height: 36px; } /* как заголовок кейса на узком экране */
-  .case-hero__title { font-size: var(--fs-h1); line-height: 36px; }
+  .case-banner__title { font-size: var(--fs-h1); line-height: 32px; } /* как заголовок кейса на узком экране */
+  .case-hero__title { font-size: var(--fs-h1); line-height: 32px; } /* 28/32: с 36 строки крупного заголовка в узкой колонке смотрелись разреженно */
 
   /* переписки и другие пары «текст + скрин» — картинка под текстом, крупнее, по центру; та же ширина у стопки фото мастерской, раз она тоже переносится вниз */
   .proof-row { flex-direction: column; }
@@ -790,6 +790,14 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
 /* в ленте с табами видна только активная раскадровка */
 .wide-scroll__track[data-tab-panel]:not(.is-active) { display: none; }
 
+@media (max-width: 600px) {
+  /* на телефоне раскадровки смотрят прямо в ленте на странице: кнопки-лупы нет, по тапу лайтбокс не открывается (см. script.js) */
+  .wide-scroll .wide-scroll__expand { display: none; }
+  .wide-scroll__track { cursor: auto; }
+  /* табы над рамкой, а не поверх неё: в низкой ленте они закрывали заметный кусок левого верхнего угла */
+  .scenario-tabs { position: static; display: inline-flex; margin-bottom: var(--s2); }
+}
+
 #lightbox-lofi .lightbox__scroll img { background: var(--stage); }
 #lightbox-map-table .lightbox__scroll img { background: var(--stage); }
 #lightbox-linking-map .lightbox__scroll img { background: var(--stage); }
@@ -859,7 +867,9 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
 
 /* таблица находок: «что заметили / что сделала», бейдж над решением */
 .tbl--findings td { width: 50%; vertical-align: top; }
-.tbl--findings td:first-child { padding-top: calc(var(--s3) + var(--s5)); } /* текст на одной линии с текстом под бейджем */
+/* в левой колонке над наблюдением — эмодзи 🫱 («вот») на месте бейджа: обе колонки начинаются с метки, текст в них на одной линии */
+.chip--mark { padding-left: 0; padding-right: 0; }
+.chip--mark img { display: inline-block; width: 20px; height: 20px; vertical-align: top; margin: -3px 0; } /* по высоте как бейдж: строку не раздвигает */
 .chip { display: inline-block; margin-bottom: var(--s1); padding: 2px var(--s2) 4px; border-radius: 999px; font-size: var(--fs-meta); line-height: 14px; } /* высота та же 20; строчные буквы шрифт рисует ниже середины строки, поэтому сверху отступ на 2 px меньше, чем снизу — текст встаёт по центру */
 .chip--done { background: #bfe6ca; color: #17703a; }
 .chip--keep { background: var(--surface); color: var(--ink-2); }
@@ -881,6 +891,12 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
 .heatmap__dot { display: inline-flex; width: 20px; height: 20px; border-radius: 999px; align-items: center; justify-content: center; font-size: var(--fs-meta); line-height: 16px; font-weight: 600; }
 .heatmap__dot--ok { background: #bfe6ca; color: #17703a; }
 .heatmap__dot--no { background: #f6c6bc; color: #a82a14; }
+/* значок рисуется иконкой по центру кружка, а не символом шрифта: на iPhone символ ✕ выходил мелким и ниже центра.
+   Сам символ остаётся в разметке для скринридеров, но не виден */
+.heatmap__dot { font-size: 0; }
+.heatmap__dot::before { content: ""; width: 10px; height: 10px; background: currentColor; -webkit-mask: var(--hm-icon) center / contain no-repeat; mask: var(--hm-icon) center / contain no-repeat; }
+.heatmap__dot--ok { --hm-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.5 5.2 4 7.6 8.6 2.6' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.heatmap__dot--no { --hm-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2.4 2.4 7.6 7.6M7.6 2.4 2.4 7.6' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"); }
 .name-short { display: none; }
 
 @media (max-width: 900px) {
@@ -897,7 +913,7 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
   .heatmap td, .heatmap th { padding-left: var(--s1); padding-right: var(--s1); }
   .heatmap td.heatmap__l, .heatmap th:first-child { padding-left: var(--s2); }
   .heatmap td.heatmap__s, .heatmap th:last-child { display: none; }
-  .heatmap tr.is-hl td.heatmap__c:last-of-type { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .heatmap tr.is-hl td:nth-last-child(2) { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; } /* на телефоне последняя колонка скрыта: скругляем последний видимый кружок-столбец, как левый край */
   .name-full { display: none; }
   .name-short { display: inline; }
 }
