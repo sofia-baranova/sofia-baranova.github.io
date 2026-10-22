@@ -868,7 +868,7 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
 /* таблица находок: «что заметили / что сделала», бейдж над решением */
 .tbl--findings td { width: 50%; vertical-align: top; }
 /* в левой колонке над наблюдением — эмодзи 🫱 («вот») на месте бейджа: обе колонки начинаются с метки, текст в них на одной линии */
-.chip--mark { padding-left: 0; padding-right: 0; }
+.chip.chip--mark { padding-left: 0; padding-right: 0; } /* двойной класс: иначе боковые отступы обычного чипса (правило ниже) перебивают это */
 .chip--mark img { display: inline-block; width: 20px; height: 20px; vertical-align: top; margin: -3px 0; } /* по высоте как бейдж: строку не раздвигает */
 .chip { display: inline-block; margin-bottom: var(--s1); padding: 2px var(--s2) 4px; border-radius: 999px; font-size: var(--fs-meta); line-height: 14px; } /* высота та же 20; строчные буквы шрифт рисует ниже середины строки, поэтому сверху отступ на 2 px меньше, чем снизу — текст встаёт по центру */
 .chip--done { background: #bfe6ca; color: #17703a; }
