@@ -92,7 +92,11 @@
   });
 
   nav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () { setOpen(false); });
+    link.addEventListener('click', function () {
+      // e-mail только копируется, человек никуда не уходит — меню остаётся открытым, видно «скопировано».
+      // Закрыть можно кнопкой, тапом мимо или выбрав другой пункт
+      if (!link.classList.contains('js-copy-email')) setOpen(false);
+    });
   });
 
   document.addEventListener('click', function (e) {

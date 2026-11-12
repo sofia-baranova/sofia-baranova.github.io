@@ -974,19 +974,18 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
 }
 
 /* ======================= ГЛАВНАЯ: первый экран, «обо мне», подвал, картинки за курсором (перенесено из превью 19.10) ======================= */
-/* герой без большого фото: аватарка, заголовок, лид в одну колонку; кейсы сразу под ним */
+/* герой без фото (12.11 убрали и аватарку — фото только в «обо мне»): заголовок и лид в одну колонку; кейсы сразу под ним */
 .hero--compact { display: block; min-height: 0; }
-.hero__avatar { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 1px solid var(--border); margin-bottom: var(--s5); }
-.hero__avatar img { width: 100%; height: 100%; object-fit: cover; }
 .hero--compact .hero__lead { max-width: calc((100% - 2 * var(--s5)) / 3 * 2 + var(--s5)); } /* ширина колонок 1–2 сетки кейсов: правый край лида совпадает с краем второй карточки */
-.hero--compact + .cases { margin-top: var(--s9); padding-top: 0; }
+.hero--compact { padding-top: var(--s6); } /* 12.11: без аватарки заголовок прилип к шапке — от шапки до заголовка 64 + 32 = 96 */
+.hero--compact + .cases { margin-top: calc(var(--s9) + var(--s6)); padding-top: 0; } /* 128 — как между остальными разделами главной (опыт, обо мне, контакты); сверху меньше, чем снизу: первый экран держится у начала страницы, а кейсы читаются отдельным разделом */
 
 /* обо мне — по сетке «Опыта» */
 .about { margin-top: calc(var(--s9) + var(--s6)); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--s5); align-items: start; }
 .about > h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.01em; line-height: 32px; text-transform: lowercase; }
 .about__body { grid-column: 2 / span 2; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--s5); align-items: stretch; }
-.about__photo { border-radius: var(--radius); background: var(--surface); overflow: hidden; } /* высота = высоте текста рядом: фото и текст всегда кончаются на одной линии, фото кадрируется под рамку */
-.about__photo img { width: 100%; height: 100%; object-fit: cover; }
+.about__photo { position: relative; border-radius: var(--radius); background: var(--surface); overflow: hidden; } /* высота = высоте текста. Исходник — квадрат A: если рамка выше квадрата, по бокам срезается фон, а композиция по вертикали не меняется */
+.about__photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 48% 50%; } /* лицо по центру при любой высоте рамки */
 .about__text { display: flex; flex-direction: column; gap: var(--s4); }
 
 /* подвал: тонкая линия, как между компаниями в опыте; мелкий серый текст. Ссылки не дублируем — они в закреплённой шапке */
@@ -1032,5 +1031,64 @@ table.tbl th { color: var(--ink-2); font-weight: 500; }
   .about > h2 { margin: 0 0 var(--s6); }
   .about__body { grid-column: 1; grid-template-columns: minmax(0, 1fr); }
   .about__photo { width: 100%; max-width: 480px; aspect-ratio: 1; } /* на телефоне — квадрат во всю ширину (на планшете не больше 480) */
+  .hero--compact { padding-top: 0; } /* на планшете и телефоне первый экран короче: отступы как были (64 от шапки, 96 до кейсов), иначе лид уезжает вниз */
+  .hero--compact + .cases { margin-top: var(--s9); }
   .hero--compact .hero__lead { max-width: 60ch; } /* на десктопе лид шириной в две карточки кейсов; на узком экране это давало колонку в 2/3 ширины — теперь во всю ширину (на планшете не длиннее ~60 знаков) */
+}
+
+
+/* ======================= ШАПКА НА ТЕЛЕФОНЕ: плавающие плашки (12.11) =======================
+   Сплошная стеклянная полоса во встроенном браузере Telegram выглядела глухой плашкой поверх текста.
+   Теперь у шапки нет фона: имя слева и кнопка меню справа — отдельные стеклянные плашки с тенью, между ними виден контент.
+   Включается там же, где гамбургер (600): так у шапки два состояния, а не три — между 500 и 600 телефонов нет */
+:root {
+  --pill-bg: rgba(238,239,241,0.72); /* цвет плашек-карточек (--surface) на 72%: текст под плашкой не мешает читать имя */
+  --pill-blur: saturate(160%) blur(20px);
+  --pill-shadow: 0 4px 16px rgba(38,38,40,0.10), 0 1px 2px rgba(38,38,40,0.06);
+}
+@media (max-width: 600px) {
+  .header { pointer-events: none; } /* пустое место между плашками не перехватывает нажатия по контенту под ним */
+  .header::before,
+  .header:has(.nav-toggle[aria-expanded="true"])::before { display: none; }
+  .header__inner { padding: 0 10px; } /* плашки 44 по центру шапки 64: 10 сверху и 10 от края экрана */
+  .brand, .nav-toggle { pointer-events: auto; }
+
+  .brand, .nav-toggle, .nav-mobile {
+    background: var(--pill-bg);
+    -webkit-backdrop-filter: var(--pill-blur);
+    backdrop-filter: var(--pill-blur);
+    border: none; /* без обводки: плашку от фона отделяет тень (12.11) */
+    box-shadow: var(--pill-shadow);
+  }
+  /* имя: 10 от края + 14 внутри = 24 — текст стоит ровно по левому краю контента.
+     Снизу 2 — поднимает текст на 1: у шрифта середина строчных букв на ~1,6 ниже середины строки, но 1,5 на глаз было уже высоко (12.11) */
+  .brand { display: flex; align-items: center; height: 44px; padding: 0 14px 2px; border-radius: 999px; }
+  .nav-toggle { width: 44px; height: 44px; margin: 0; padding: 0; border-radius: 50%; }
+
+  /* открытое меню — небольшая стеклянная карточка, прикреплённая к кнопке справа и «вырастающая» из неё (12.11).
+     На всю ширину короткие пункты жались к левому краю, далеко от кнопки, которой меню открыли */
+  .nav-mobile {
+    top: 62px; left: auto; right: 10px; /* 8 ниже плашек, правый край — по кнопке */
+    min-width: 200px;
+    padding: 6px; gap: 0;
+    align-items: stretch;
+    border-radius: 20px;
+    transform-origin: top right;
+    transform: translateY(-4px) scale(.96);
+  }
+  .nav-mobile.is-open { transform: none; }
+  /* каждый пункт — строка 44 во всю ширину карточки: удобно попадать пальцем */
+  .nav-mobile a {
+    position: relative;
+    display: block; padding: 10px 14px; line-height: 24px;
+    border-radius: 14px; /* 20 у карточки − 6 поле: скругления параллельны */
+    color: var(--ink);
+  }
+  .nav-mobile a:active { background: rgba(38,38,40,0.06); }
+  /* тонкая линия между разделами сайта (кейсы, опыт, обо мне) и контактами (telegram, e-mail, cv) */
+  .nav-mobile a:nth-child(4) { margin-top: 13px; }
+  .nav-mobile a:nth-child(4)::before {
+    content: ""; position: absolute; left: 14px; right: 14px; top: -7px;
+    height: 1px; background: rgba(38,38,40,0.10);
+  }
 }
